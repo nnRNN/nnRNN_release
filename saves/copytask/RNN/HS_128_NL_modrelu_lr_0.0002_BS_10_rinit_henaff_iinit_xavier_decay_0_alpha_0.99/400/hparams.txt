@@ -1,0 +1,1 @@
+net_type: RNNnhid: 128cuda: FalseT: 300random_seed: 400labels: 8c_length: 10alam: 0.0001nonlin: modreluostep_method: expvari: Falselr: 0.0002lr_orth: 2e-05rinit: henaffiinit: xavierbatch: 10weight_decay: 0onehot: Falsealpha: 0.99

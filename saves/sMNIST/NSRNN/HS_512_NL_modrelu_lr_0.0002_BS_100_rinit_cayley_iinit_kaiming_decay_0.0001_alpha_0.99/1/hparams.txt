@@ -1,0 +1,1 @@
+net_type: NSRNNnhid: 512save_freq: 1cuda: Truerandom_seed: 1permute: Truealam: 0.0001nonlin: modreluostep_method: explr: 0.0002lr_orth: 2e-05rinit: cayleyiinit: kaimingbatch: 100weight_decay: 0.0001alpha: 0.99

@@ -1,0 +1,2 @@
+python sMNIST.py --net-type EXPRNN --nhid 512 --save-freq 1 --random-seed 1 --alpha 0.99 --lr 0.0005 --lr_orth 0.00005 --rinit cayley
+python sMNIST.py --net-type NSRNN2 --nhid 512 --save-freq 1 --random-seed 1 --alpha 0.99 --lr 0.0002 --lr_orth 0.00002 --rinit cayley --weight_decay 0.0001
