@@ -125,6 +125,7 @@ class OrthoRNNCell(nn.Module):
         self.UppT = UppT
         self.UppT = nn.Parameter(self.UppT)
         self.M = torch.triu(torch.ones_like(self.UppT),diagonal=1)
+        
 
 
         # Create rotations and mask M for *.3 and *.4
@@ -139,6 +140,10 @@ class OrthoRNNCell(nn.Module):
             self.alphas[i] = nn.Parameter(torch.Tensor([np.random.uniform(1.00,1.00)]))
             self.register_parameter('alpha_{}'.format(i),self.alphas[i])
 
+        # print("self.UppT: ", self.UppT)
+        # print("self.M: ", self.M)
+        # print("self.alphas[0]: ", self.alphas[0].size())
+        # print("self.thetas: ", self.thetas)
         
         self.reset_parameters()
 
@@ -157,6 +162,7 @@ class OrthoRNNCell(nn.Module):
         self.i_initializer(self.U.weight.data)
         self.log_P.data = torch.as_tensor(self.r_initializer(self.hidden_size))
         self.P.data = self._B(False)
+        # print("self.log_P", self.log_P)
 
     def _A(self,gradients=False):
         A = self.log_P
@@ -166,7 +172,9 @@ class OrthoRNNCell(nn.Module):
         return A-A.t()
 
     def _B(self,gradients=False):
-        return expm(self._A())
+        temp = self._A()
+        # print("self._A: ", temp)
+        return expm(temp)
         
     def orthogonal_step(self,optimizer):
         A = self._A(False)
@@ -174,7 +182,9 @@ class OrthoRNNCell(nn.Module):
         G = self.P.grad.data
         BtG = B.t().mm(G)
         grad = 0.5*(BtG - BtG.t())
-        frechet_deriv = B.mm(expm_frechet(-A, grad))
+        temp = expm_frechet(-A, grad)
+        frechet_deriv = B.mm(temp)
+        # print("frechet_deriv: ", temp)
         self.log_P.grad = (frechet_deriv - frechet_deriv.t()).triu(diagonal=1)
         optimizer.step()
         self.P.data = self._B(False)
