@@ -166,7 +166,7 @@ def select_optimizer(net, args):
             optimizer = optim.RMSprop(x, lr=args.lr, alpha=args.alpha)
             orthog_optimizer = optim.RMSprop(y, lr=args.lr_orth, alpha=args.alpha)
         elif args.optimizer == 'Adam':
-            optimizer = optim.Adam(x, lr=args.lr, alpha=args.betas)
+            optimizer = optim.Adam(x, lr=args.lr, betas=args.betas)
             orthog_optimizer = optim.Adam(y, lr=args.lr_orth, betas=args.betas)
     else:
         if args.optimizer == 'RMSprop':
