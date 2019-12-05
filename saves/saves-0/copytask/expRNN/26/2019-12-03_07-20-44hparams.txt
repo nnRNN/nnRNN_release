@@ -1,0 +1,1 @@
+alpha: 0.99nonlin: modrelunhid: 128Tdecay: -16lr_orth: 0.0001iinit: xavieralam: 0.0001optimizer: RMSpropcuda: Falsebetas: (0.9, 0.999)onehot: Falserandom_seed: 26rinit: henaffnet_type: expRNNc_length: 10batch: 10lr: 0.001labels: 8T: 200

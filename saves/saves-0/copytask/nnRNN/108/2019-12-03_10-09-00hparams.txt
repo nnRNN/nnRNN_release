@@ -1,0 +1,1 @@
+labels: 8net_type: nnRNNbatch: 10betas: (0.9, 0.999)optimizer: RMSpropalam: 0.0001nonlin: modreluonehot: FalseTdecay: 1e-06iinit: xavierrandom_seed: 108lr_orth: 1e-06alpha: 0.99nhid: 128c_length: 10rinit: henafflr: 0.0005cuda: FalseT: 200

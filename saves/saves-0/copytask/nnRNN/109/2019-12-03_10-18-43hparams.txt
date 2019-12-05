@@ -1,0 +1,1 @@
+alam: 0.0001rinit: henaffTdecay: 1e-06batch: 10T: 200alpha: 0.99lr: 0.0005nonlin: modrelurandom_seed: 109betas: (0.9, 0.999)cuda: Falsenhid: 128c_length: 10iinit: xavierlr_orth: 1e-06net_type: nnRNNlabels: 8onehot: Falseoptimizer: RMSprop

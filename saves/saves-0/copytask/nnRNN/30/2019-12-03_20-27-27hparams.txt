@@ -1,0 +1,1 @@
+cuda: Falserinit: henafflabels: 8onehot: Falseoptimizer: RMSpropc_length: 10nhid: 128iinit: xavierTdecay: 1e-06lr_orth: 1e-06alam: 0.0001batch: 10random_seed: 30nonlin: modrelulr: 0.0005T: 200net_type: nnRNNbetas: (0.9, 0.999)alpha: 0.99

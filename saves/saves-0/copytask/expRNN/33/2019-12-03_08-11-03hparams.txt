@@ -1,0 +1,1 @@
+optimizer: RMSpropT: 200lr_orth: 0.0001alam: 0.0001nhid: 128random_seed: 33onehot: Falsecuda: Falselr: 0.001batch: 10net_type: expRNNlabels: 8betas: (0.9, 0.999)nonlin: modrelurinit: henaffiinit: xavierTdecay: -16alpha: 0.99c_length: 10

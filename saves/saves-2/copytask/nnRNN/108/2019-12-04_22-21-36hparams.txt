@@ -1,0 +1,1 @@
+iinit: xavieralam: 0.0001cuda: Falsenhid: 128labels: 8random_seed: 108lr_orth: 1e-06alpha: 0.99betas: (0.9, 0.999)c_length: 10T: 200batch: 10nonlin: modreluTdecay: 1e-06lr: 0.0005onehot: Falseoptimizer: RMSpropnet_type: nnRNNrinit: random

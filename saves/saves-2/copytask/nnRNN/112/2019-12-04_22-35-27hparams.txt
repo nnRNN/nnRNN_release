@@ -1,0 +1,1 @@
+Tdecay: 1e-06cuda: Falsealam: 0.0001T: 200onehot: Falserinit: randomlr: 0.0005labels: 8alpha: 0.99net_type: nnRNNbatch: 10nhid: 128c_length: 10nonlin: modrelubetas: (0.9, 0.999)lr_orth: 1e-06optimizer: RMSproprandom_seed: 112iinit: xavier

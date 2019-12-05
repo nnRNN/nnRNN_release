@@ -1,0 +1,1 @@
+iinit: xaviernhid: 128batch: 10lr: 0.0005optimizer: RMSpropc_length: 10cuda: Falsenonlin: modrelulr_orth: 2e-05onehot: Falsealam: 0.0001T: 200Tdecay: -16rinit: xavierrandom_seed: 3labels: 8alpha: 0.99betas: (0.9, 0.999)net_type: LSTM

@@ -1,0 +1,1 @@
+net_type: nnRNNalpha: 0.99lr_orth: 1e-06rinit: cayleylabels: 8nhid: 128Tdecay: 1e-06c_length: 10onehot: Falseiinit: xavieralam: 0.0001batch: 10random_seed: 1optimizer: RMSpropbetas: (0.9, 0.999)T: 200nonlin: modrelulr: 0.0005cuda: False

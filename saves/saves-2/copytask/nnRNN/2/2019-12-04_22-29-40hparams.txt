@@ -1,0 +1,1 @@
+cuda: Falsealpha: 0.99random_seed: 2optimizer: RMSpropTdecay: 1e-06T: 200nonlin: modrelulr_orth: 1e-06labels: 8betas: (0.9, 0.999)c_length: 10nhid: 128batch: 10iinit: xavieronehot: Falselr: 0.0005rinit: cayleyalam: 0.0001net_type: nnRNN

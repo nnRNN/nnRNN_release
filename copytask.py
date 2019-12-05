@@ -207,7 +207,7 @@ alam = args.alam
 Tdecay = args.Tdecay
 hidden_size = args.nhid
 
-n_steps = 1500
+n_steps = 800
 exp_time = "{0:%Y-%m-%d}_{0:%H-%M-%S}".format(datetime.now())
 SAVEDIR = os.path.join('./saves', 'copytask',
                        NET_TYPE, str(random_seed),exp_time)

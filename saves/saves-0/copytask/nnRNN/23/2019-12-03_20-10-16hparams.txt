@@ -1,0 +1,1 @@
+batch: 10lr_orth: 1e-06T: 200lr: 0.0005iinit: xavieralam: 0.0001Tdecay: 1e-06labels: 8onehot: Falserandom_seed: 23c_length: 10rinit: henaffcuda: Falsenonlin: modrelubetas: (0.9, 0.999)alpha: 0.99nhid: 128net_type: nnRNNoptimizer: RMSprop

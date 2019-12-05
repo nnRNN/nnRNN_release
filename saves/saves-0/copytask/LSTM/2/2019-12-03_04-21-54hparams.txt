@@ -1,0 +1,1 @@
+random_seed: 2net_type: LSTMcuda: Falseonehot: Falseoptimizer: RMSproprinit: xavieralpha: 0.99Tdecay: -16nonlin: modreluT: 200betas: (0.9, 0.999)c_length: 10lr_orth: 2e-05lr: 0.0005iinit: xavierbatch: 10alam: 0.0001labels: 8nhid: 128

@@ -1,0 +1,1 @@
+rinit: henaffT: 200random_seed: 25onehot: Falsebatch: 10lr: 0.001Tdecay: -16cuda: Falsealpha: 0.99nhid: 128nonlin: modrelulr_orth: 0.0001net_type: expRNNoptimizer: RMSpropbetas: (0.9, 0.999)labels: 8iinit: xavieralam: 0.0001c_length: 10

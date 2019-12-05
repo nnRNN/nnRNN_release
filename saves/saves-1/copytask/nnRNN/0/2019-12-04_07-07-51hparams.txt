@@ -1,0 +1,1 @@
+iinit: xaviernonlin: modreluT: 200cuda: Falselr: 0.0005betas: (0.9, 0.999)rinit: henaffTdecay: 1e-06batch: 10lr_orth: 1e-06c_length: 10net_type: nnRNNnhid: 128onehot: Falsealam: 0.0001labels: 8random_seed: 0alpha: 0.99optimizer: RMSprop

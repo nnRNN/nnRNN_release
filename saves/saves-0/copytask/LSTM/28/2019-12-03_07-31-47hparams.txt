@@ -1,0 +1,1 @@
+rinit: xavierbatch: 10onehot: FalseT: 200optimizer: RMSpropnonlin: modrelurandom_seed: 28labels: 8Tdecay: -16lr: 0.0005lr_orth: 2e-05cuda: Falsenet_type: LSTMalam: 0.0001alpha: 0.99nhid: 128c_length: 10betas: (0.9, 0.999)iinit: xavier

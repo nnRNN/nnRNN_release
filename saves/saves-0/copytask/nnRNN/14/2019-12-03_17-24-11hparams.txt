@@ -1,0 +1,1 @@
+c_length: 10nonlin: modrelurandom_seed: 14rinit: henaffbetas: (0.9, 0.999)T: 200lr_orth: 1e-06alam: 0.0001batch: 10iinit: xavierlabels: 8onehot: Falsenhid: 128net_type: nnRNNoptimizer: RMSproplr: 0.0005alpha: 0.99cuda: FalseTdecay: 1e-06

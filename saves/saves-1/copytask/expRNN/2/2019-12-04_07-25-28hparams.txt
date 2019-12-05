@@ -1,0 +1,1 @@
+iinit: xaviernet_type: expRNNTdecay: 1e-05betas: (0.9, 0.999)alpha: 0.99lr_orth: 0.0001random_seed: 2c_length: 10labels: 8batch: 10T: 200alam: 0.0001lr: 0.001nonlin: modrelurinit: henaffoptimizer: RMSpropcuda: Falseonehot: Falsenhid: 128

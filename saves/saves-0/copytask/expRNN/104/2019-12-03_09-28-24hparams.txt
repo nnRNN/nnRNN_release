@@ -1,0 +1,1 @@
+alam: 0.0001betas: (0.9, 0.999)lr: 0.001net_type: expRNNnhid: 128T: 200optimizer: RMSproprinit: henafflr_orth: 0.0001nonlin: modrelubatch: 10Tdecay: -16labels: 8alpha: 0.99c_length: 10random_seed: 104cuda: Falseiinit: xavieronehot: False

@@ -1,0 +1,1 @@
+onehot: FalseTdecay: -16nhid: 128optimizer: RMSpropalam: 0.0001c_length: 10lr: 0.0005labels: 8betas: (0.9, 0.999)T: 200random_seed: 10iinit: xavierlr_orth: 2e-05batch: 10net_type: LSTMcuda: Falsealpha: 0.99nonlin: modrelurinit: xavier

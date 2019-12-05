@@ -1,0 +1,1 @@
+random_seed: 12net_type: RNNonehot: Falsebetas: (0.9, 0.999)alpha: 0.9rinit: xavieralam: 0.0001batch: 10iinit: xavierlabels: 8optimizer: RMSproplr: 0.001nhid: 128c_length: 10nonlin: modreluT: 200cuda: FalseTdecay: -16lr_orth: 2e-05

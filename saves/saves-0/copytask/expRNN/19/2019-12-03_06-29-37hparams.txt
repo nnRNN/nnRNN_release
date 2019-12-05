@@ -1,0 +1,1 @@
+alpha: 0.99rinit: henaffbetas: (0.9, 0.999)labels: 8iinit: xavierlr: 0.001nonlin: modreluoptimizer: RMSpropnet_type: expRNNcuda: FalseTdecay: -16nhid: 128lr_orth: 0.0001batch: 10random_seed: 19c_length: 10alam: 0.0001T: 200onehot: False

@@ -1,0 +1,1 @@
+nonlin: modreluiinit: xavieralpha: 0.99random_seed: 4betas: (0.9, 0.999)nhid: 128optimizer: RMSpropc_length: 10Tdecay: 1e-05batch: 10alam: 0.0001net_type: LSTMcuda: Falseonehot: Falselr: 0.0005lr_orth: 2e-05T: 200labels: 8rinit: xavier

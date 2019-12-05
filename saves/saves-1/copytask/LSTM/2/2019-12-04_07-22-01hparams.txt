@@ -1,0 +1,1 @@
+alpha: 0.99alam: 0.0001betas: (0.9, 0.999)cuda: Falsebatch: 10rinit: xavierlabels: 8net_type: LSTMonehot: FalseTdecay: 1e-05lr: 0.0005iinit: xavieroptimizer: RMSproplr_orth: 2e-05nhid: 128nonlin: modreluc_length: 10T: 200random_seed: 2
