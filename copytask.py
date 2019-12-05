@@ -27,7 +27,7 @@ parser.add_argument('--labels', type=int, default=8,
                     help='number of labels in the output and input')
 parser.add_argument('--c-length', type=int, default=10, help='sequence length')
 parser.add_argument('--onehot', action='store_true',
-                    default=False, help='Onehot inputs')
+                    default=True, help='Onehot inputs')
 
 parser.add_argument('--batch', type=int,
                     default=10, help='batch size')
@@ -54,7 +54,7 @@ parser.add_argument('--alam', type=float, default=0.0001,
                     help='decay for gamma values nnRNN')
 parser.add_argument('--Tdecay', type=float,
                     default=10e-6, help='weight decay on upper T')
-parser.add_argument('--gamma-gradient', type=str2bool,
+parser.add_argument('--gamma-zero-gradient', type=str2bool,
                     default=False, help='Whether to update gamma values or not')
 
 args = parser.parse_args()
@@ -176,7 +176,7 @@ def train_model(net, optimizer, batch_size, T, n_steps):
 
         if orthog_optimizer:
             net.rnn.orthogonal_step(orthog_optimizer)
-            if args.gamma_gradient == True:
+            if args.gamma_zero_gradient == True:
                 [net.rnn.alphas[i].grad.data.zero_() for i in range(len(net.rnn.alphas))]
             # print(net.rnn.alphas[0].grad.data.zero_())
 
@@ -220,7 +220,6 @@ CUDA = args.cuda
 alam = args.alam
 Tdecay = args.Tdecay
 hidden_size = args.nhid
-
 n_steps = 800
 exp_time = "{0:%Y-%m-%d}_{0:%H-%M-%S}".format(datetime.now())
 SAVEDIR = os.path.join('./saves', 'copytask',
