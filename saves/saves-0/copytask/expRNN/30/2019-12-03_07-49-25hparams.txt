@@ -1,1 +1,0 @@
-nhid: 128Tdecay: -16rinit: henaffcuda: Falselabels: 8T: 200alam: 0.0001nonlin: modrelubatch: 10alpha: 0.99random_seed: 30lr: 0.001lr_orth: 0.0001onehot: Falseoptimizer: RMSpropbetas: (0.9, 0.999)net_type: expRNNc_length: 10iinit: xavier

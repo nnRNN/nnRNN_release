@@ -1,1 +1,0 @@
-nhid: 128random_seed: 106onehot: Falselabels: 8rinit: xavieralam: 0.0001Tdecay: -16c_length: 10net_type: LSTMlr: 0.0005optimizer: RMSpropiinit: xavierbatch: 10cuda: Falselr_orth: 2e-05nonlin: modrelualpha: 0.99betas: (0.9, 0.999)T: 200

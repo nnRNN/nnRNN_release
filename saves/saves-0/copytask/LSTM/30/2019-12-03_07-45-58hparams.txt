@@ -1,1 +1,0 @@
-nhid: 128lr_orth: 2e-05T: 200cuda: Falsenonlin: modreluc_length: 10labels: 8betas: (0.9, 0.999)optimizer: RMSproplr: 0.0005random_seed: 30iinit: xavieralpha: 0.99onehot: Falsealam: 0.0001Tdecay: -16batch: 10rinit: xaviernet_type: LSTM

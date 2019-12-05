@@ -1,1 +1,0 @@
-net_type: expRNNT: 200nhid: 128lr: 0.001batch: 10alam: 0.0001alpha: 0.99labels: 8betas: (0.9, 0.999)cuda: Falsec_length: 10iinit: xavieronehot: Falserinit: henaffrandom_seed: 105lr_orth: 0.0001nonlin: modreluoptimizer: RMSpropTdecay: -16

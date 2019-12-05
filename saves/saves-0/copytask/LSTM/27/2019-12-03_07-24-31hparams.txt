@@ -1,1 +1,0 @@
-lr_orth: 2e-05rinit: xavierbetas: (0.9, 0.999)random_seed: 27net_type: LSTMoptimizer: RMSpropiinit: xavierlr: 0.0005nonlin: modreluT: 200cuda: Falsealam: 0.0001batch: 10onehot: Falsenhid: 128Tdecay: -16c_length: 10labels: 8alpha: 0.99

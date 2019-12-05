@@ -1,1 +1,0 @@
-nonlin: modrelucuda: Falsebatch: 10labels: 8alpha: 0.99betas: (0.9, 0.999)alam: 0.0001rinit: xavierlr_orth: 2e-05T: 200optimizer: RMSproprandom_seed: 6nhid: 128Tdecay: -16onehot: Falsec_length: 10net_type: LSTMiinit: xavierlr: 0.0005

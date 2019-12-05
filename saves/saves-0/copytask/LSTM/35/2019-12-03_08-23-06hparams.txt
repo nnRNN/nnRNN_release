@@ -1,1 +1,0 @@
-labels: 8net_type: LSTMTdecay: -16lr: 0.0005betas: (0.9, 0.999)c_length: 10onehot: Falserandom_seed: 35alpha: 0.99cuda: Falsebatch: 10nhid: 128rinit: xavierT: 200nonlin: modreluiinit: xavieralam: 0.0001lr_orth: 2e-05optimizer: RMSprop

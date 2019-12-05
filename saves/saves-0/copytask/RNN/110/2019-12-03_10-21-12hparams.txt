@@ -1,1 +1,0 @@
-nonlin: modreluT: 200iinit: xavierbetas: (0.9, 0.999)cuda: Falserinit: xaviernet_type: RNNoptimizer: RMSproprandom_seed: 110alpha: 0.9alam: 0.0001batch: 10lr_orth: 2e-05nhid: 128Tdecay: -16c_length: 10labels: 8onehot: Falselr: 0.001

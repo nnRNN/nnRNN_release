@@ -1,1 +1,0 @@
-onehot: Falseoptimizer: RMSproprinit: xavierbetas: (0.9, 0.999)iinit: xavierlabels: 8nhid: 128alpha: 0.9lr: 0.001random_seed: 13alam: 0.0001batch: 10cuda: FalseTdecay: -16T: 200c_length: 10lr_orth: 2e-05nonlin: modrelunet_type: RNN

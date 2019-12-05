@@ -1,1 +1,0 @@
-Tdecay: -16nonlin: modrelunet_type: LSTMrinit: xavierc_length: 10iinit: xaviercuda: Falsebetas: (0.9, 0.999)labels: 8batch: 10optimizer: RMSproprandom_seed: 111alam: 0.0001nhid: 128lr: 0.0005onehot: Falsealpha: 0.99T: 200lr_orth: 2e-05

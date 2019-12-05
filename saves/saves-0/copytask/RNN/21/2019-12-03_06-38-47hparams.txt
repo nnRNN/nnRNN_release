@@ -1,1 +1,0 @@
-alam: 0.0001batch: 10iinit: xavierbetas: (0.9, 0.999)T: 200net_type: RNNlr: 0.001lr_orth: 2e-05c_length: 10Tdecay: -16nonlin: modrelunhid: 128alpha: 0.9rinit: xavierrandom_seed: 21optimizer: RMSpropcuda: Falselabels: 8onehot: False

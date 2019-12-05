@@ -1,1 +1,0 @@
-iinit: xavieronehot: FalseT: 200optimizer: RMSproprandom_seed: 35lr_orth: 0.0001net_type: expRNNlr: 0.001nonlin: modrelualam: 0.0001cuda: Falsebatch: 10Tdecay: -16alpha: 0.99nhid: 128betas: (0.9, 0.999)c_length: 10rinit: henafflabels: 8

@@ -1,1 +1,0 @@
-T: 200rinit: henafflr_orth: 1e-06optimizer: RMSpropbatch: 10random_seed: 105Tdecay: 1e-06alpha: 0.99onehot: Falsenhid: 128c_length: 10cuda: Falsenet_type: nnRNNiinit: xavierbetas: (0.9, 0.999)labels: 8nonlin: modrelulr: 0.0005alam: 0.0001

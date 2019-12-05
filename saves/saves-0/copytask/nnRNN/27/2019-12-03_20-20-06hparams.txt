@@ -1,1 +1,0 @@
-onehot: FalseTdecay: 1e-06labels: 8cuda: Falsebatch: 10iinit: xavierrinit: henaffT: 200alam: 0.0001nhid: 128lr: 0.0005optimizer: RMSpropnet_type: nnRNNalpha: 0.99random_seed: 27c_length: 10betas: (0.9, 0.999)lr_orth: 1e-06nonlin: modrelu

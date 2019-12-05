@@ -1,1 +1,0 @@
-net_type: RNNT: 200nonlin: modrelulabels: 8rinit: xavieralpha: 0.9betas: (0.9, 0.999)c_length: 10lr_orth: 2e-05cuda: Falselr: 0.001optimizer: RMSproprandom_seed: 8iinit: xavieralam: 0.0001batch: 10nhid: 128Tdecay: -16onehot: False

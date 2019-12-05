@@ -1,1 +1,0 @@
-batch: 10rinit: henaffonehot: Falselabels: 8T: 200nhid: 128iinit: xavieralpha: 0.99Tdecay: -16c_length: 10betas: (0.9, 0.999)nonlin: modreluoptimizer: RMSproprandom_seed: 108lr: 0.001net_type: expRNNcuda: Falsealam: 0.0001lr_orth: 0.0001

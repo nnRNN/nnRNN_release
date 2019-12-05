@@ -1,1 +1,0 @@
-nhid: 128optimizer: RMSproplabels: 8c_length: 10batch: 10rinit: xavierrandom_seed: 103T: 200cuda: Falsealam: 0.0001onehot: Falselr: 0.0005Tdecay: -16lr_orth: 2e-05nonlin: modreluiinit: xavierbetas: (0.9, 0.999)alpha: 0.99net_type: LSTM

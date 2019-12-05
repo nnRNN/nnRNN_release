@@ -1,1 +1,0 @@
-onehot: Falseoptimizer: RMSpropbatch: 10random_seed: 17cuda: FalseT: 200nhid: 128betas: (0.9, 0.999)lr_orth: 1e-06alam: 0.0001labels: 8c_length: 10Tdecay: 1e-06lr: 0.0005nonlin: modreluiinit: xavierrinit: henaffnet_type: nnRNNalpha: 0.99

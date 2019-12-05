@@ -1,1 +1,0 @@
-lr_orth: 2e-05net_type: RNNoptimizer: RMSpropcuda: Falsec_length: 10betas: (0.9, 0.999)labels: 8iinit: xavierrinit: xavierbatch: 10T: 200Tdecay: -16random_seed: 3alam: 0.0001nonlin: modrelualpha: 0.9nhid: 128lr: 0.001onehot: False

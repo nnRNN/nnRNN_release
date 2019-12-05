@@ -1,1 +1,0 @@
-cuda: Falsealpha: 0.99c_length: 10net_type: LSTMalam: 0.0001optimizer: RMSpropnonlin: modrelurandom_seed: 100lr_orth: 2e-05rinit: xavieriinit: xavierlabels: 8lr: 0.0005T: 200betas: (0.9, 0.999)nhid: 128batch: 10onehot: FalseTdecay: -16
