@@ -1,0 +1,1 @@
+random_seed: 43optimizer: RMSpropgamma_zero_gradient: Truenet_type: nnRNNlr_orth: 1e-06betas: (0.9, 0.999)rinit: henaffbatch: 10labels: 8alam: 0.0001Tdecay: 1e-06c_length: 10lr: 0.0005T: 200cuda: Falsenhid: 128iinit: xaviernonlin: modreluonehot: Truealpha: 0.99
