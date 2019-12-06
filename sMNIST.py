@@ -288,5 +288,5 @@ print('Cuda: {}'.format(CUDA))
 optimizer, orthog_optimizer = select_optimizer(net, args)
 epoch = 0
 num_epochs = args.epochs
-train_model(net, optimizer, num_epochs)
+train_model(net, num_epochs)
 
