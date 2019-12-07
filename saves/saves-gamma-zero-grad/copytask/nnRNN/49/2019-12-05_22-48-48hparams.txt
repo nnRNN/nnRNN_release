@@ -1,0 +1,1 @@
+optimizer: RMSpropiinit: xaviercuda: Falsenet_type: nnRNNalpha: 0.99labels: 8betas: (0.9, 0.999)Tdecay: 1e-06lr_orth: 1e-06onehot: TrueT: 200nonlin: modrelubatch: 10alam: 0.0001gamma_zero_gradient: Truerandom_seed: 49nhid: 128rinit: henaffc_length: 10lr: 0.0005

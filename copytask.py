@@ -178,7 +178,8 @@ def train_model(net, optimizer, batch_size, T, n_steps):
             net.rnn.orthogonal_step(orthog_optimizer)
             if args.gamma_zero_gradient == True:
                 [net.rnn.alphas[i].grad.data.zero_() for i in range(len(net.rnn.alphas))]
-            # print(net.rnn.alphas[0].grad.data.zero_())
+                # [net.rnn.thetas[i].grad.data.zero_() for i in range(len(net.rnn.thetas))]
+            # print(net.rnn.thetas[0].grad)
 
         optimizer.step()
         accs.append(accuracy)
