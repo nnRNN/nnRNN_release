@@ -1,0 +1,1 @@
+T: 200cuda: Falsenet_type: nnRNNlr_orth: 1e-06alam: 0.0001betas: (0.9, 0.999)batch: 10random_seed: 312lr: 0.0005iinit: xavierrinit: henaffalpha: 0.99nonlin: modrelunhid: 256onehot: Truegamma_zero_gradient: Falseoptimizer: RMSpropc_length: 10Tdecay: 1e-06labels: 8

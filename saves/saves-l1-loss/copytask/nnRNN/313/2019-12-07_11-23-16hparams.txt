@@ -1,0 +1,1 @@
+batch: 10optimizer: RMSpropTdecay: 1e-06cuda: Falseiinit: xaviernhid: 256lr: 0.0005alpha: 0.99alam: 0.0001net_type: nnRNNonehot: Truerandom_seed: 313gamma_zero_gradient: Falserinit: henaffbetas: (0.9, 0.999)lr_orth: 1e-06T: 200labels: 8c_length: 10nonlin: modrelu

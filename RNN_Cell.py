@@ -134,7 +134,7 @@ class OrthoRNNCell(nn.Module):
             self.thetas[i] = nn.Parameter(torch.Tensor([np.random.uniform(0,2*3.14)]))
             self.register_parameter('theta_{}'.format(i),self.thetas[i])
 
-        self.alpha_crit = nn.L1Loss()
+        self.alpha_crit = nn.MSELoss()
         self.alphas = [0]*int(hid_size/2)
         for i in range(0,len(self.alphas)):
             self.alphas[i] = nn.Parameter(torch.Tensor([np.random.uniform(1.00,1.00)]))

@@ -1,1 +1,0 @@
-net_type: RNNnhid: 512cuda: Falserandom_seed: 400permute: Trueepochs: 100save_freq: 50batch: 100lr: 0.0001lr_orth: 2e-05optimizer: RMSpropalpha: 0.9betas: (0.9, 0.999)rinit: xavieriinit: xaviernonlin: modrelualam: 0.0001Tdecay: 1.0

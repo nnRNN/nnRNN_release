@@ -1,0 +1,1 @@
+iinit: xavierlr: 0.0005alpha: 0.99optimizer: RMSproponehot: Truec_length: 10cuda: Falsebetas: (0.9, 0.999)T: 200Tdecay: 1e-06rinit: henafflabels: 8gamma_zero_gradient: Falsenhid: 256batch: 10nonlin: modrelulr_orth: 1e-06net_type: nnRNNalam: 0.0001random_seed: 300

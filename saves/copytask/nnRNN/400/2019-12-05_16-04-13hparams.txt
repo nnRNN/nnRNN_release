@@ -1,1 +1,0 @@
-net_type: nnRNNnhid: 256cuda: FalseT: 200random_seed: 400labels: 8c_length: 10onehot: Truebatch: 10lr: 0.0005lr_orth: 1e-06optimizer: Adamalpha: 0.99betas: (0.9, 0.999)rinit: cayleyiinit: xaviernonlin: modrelualam: 0.0001Tdecay: 1e-06gamma_zero_gradient: False

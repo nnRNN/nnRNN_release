@@ -1,0 +1,1 @@
+Tdecay: 1e-06alam: 0.0001optimizer: RMSpropiinit: xavierbetas: (0.9, 0.999)gamma_zero_gradient: Falselabels: 8batch: 10cuda: Falseonehot: Truec_length: 10T: 200nhid: 128nonlin: modrelulr: 0.0005lr_orth: 1e-06random_seed: 373rinit: henaffnet_type: nnRNNalpha: 0.99
