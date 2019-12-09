@@ -107,6 +107,7 @@ class OrthoRNNCell(nn.Module):
             self.nonlinearity = None
 
         # Create linear layer to act on input X
+        # print("inp size: ", inp_size, " hid_size", hid_size)
         self.U = nn.Linear(inp_size, hid_size, bias=bias)
 
         self.i_initializer = i_initializer
@@ -195,6 +196,10 @@ class OrthoRNNCell(nn.Module):
             hidden = x.new_zeros(x.shape[0],self.hidden_size, requires_grad=True)
             self.first_hidden = hidden
             self.calc_rec()
+        # print("hid size, self.rec size: ", hidden.size(), self.rec.size())
+        # print("x: ", x.size())
+        # temp = self.U(x)
+        # print("self.U(x): ", temp.size())
         h = self.U(x) + torch.matmul(hidden,self.rec)
         if self.nonlinearity:
             h = self.nonlinearity(h)

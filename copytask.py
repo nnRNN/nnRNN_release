@@ -27,7 +27,7 @@ parser.add_argument('--labels', type=int, default=8,
                     help='number of labels in the output and input')
 parser.add_argument('--c-length', type=int, default=10, help='sequence length')
 parser.add_argument('--onehot', action='store_true',
-                    default=True, help='Onehot inputs')
+                    default=False, help='Onehot inputs')
 
 parser.add_argument('--batch', type=int,
                     default=10, help='batch size')
