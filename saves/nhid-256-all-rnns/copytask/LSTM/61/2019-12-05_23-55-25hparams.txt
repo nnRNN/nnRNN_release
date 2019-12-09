@@ -1,0 +1,1 @@
+labels: 8optimizer: RMSproponehot: Truecuda: Falseiinit: xavierrinit: xavierlr: 0.0005alpha: 0.99net_type: LSTMbatch: 10random_seed: 61lr_orth: 2e-05nhid: 256betas: (0.9, 0.999)Tdecay: 1e-05nonlin: modreluT: 200c_length: 10gamma_zero_gradient: Falsealam: 0.0001

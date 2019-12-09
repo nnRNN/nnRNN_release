@@ -1,1 +1,0 @@
-lr: 0.0005labels: 8betas: (0.9, 0.999)iinit: xavierTdecay: 1e-06alam: 0.0001random_seed: 105rinit: randomcuda: Falseoptimizer: RMSpropT: 200nhid: 128onehot: Falsenonlin: modrelualpha: 0.99batch: 10net_type: nnRNNc_length: 10lr_orth: 1e-06

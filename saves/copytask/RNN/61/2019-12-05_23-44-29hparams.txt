@@ -1,1 +1,0 @@
-lr_orth: 2e-05labels: 8alpha: 0.9iinit: xavierrinit: xavierTdecay: 1e-05betas: (0.9, 0.999)alam: 0.0001onehot: Truegamma_zero_gradient: Falseoptimizer: RMSproprandom_seed: 61net_type: RNNc_length: 10nonlin: modrelucuda: Falsebatch: 10T: 200nhid: 256lr: 0.001

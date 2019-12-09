@@ -1,0 +1,1 @@
+alam: 0.0001nhid: 128gamma_zero_gradient: Falsebetas: (0.9, 0.999)cuda: Falselr: 0.0002Tdecay: 1e-05T: 200nonlin: modreluoptimizer: RMSproponehot: Falseiinit: xavierrinit: henafflabels: 8no_of_ones: 2alpha: 0.99batch: 10lr_orth: 2e-05random_seed: 824net_type: LSTMc_length: 100

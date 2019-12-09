@@ -1,0 +1,1 @@
+nhid: 128net_type: nnRNNlr_orth: 2e-05gamma_zero_gradient: Falsenonlin: modrelualam: 0.0001betas: (0.9, 0.999)random_seed: 820rinit: henaffno_of_ones: 2lr: 0.0002iinit: xavierlabels: 8T: 200cuda: Falsealpha: 0.99onehot: Falsebatch: 10optimizer: RMSpropTdecay: 1e-05c_length: 100

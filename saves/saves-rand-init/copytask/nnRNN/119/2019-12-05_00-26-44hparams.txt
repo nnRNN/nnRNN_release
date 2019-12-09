@@ -1,0 +1,1 @@
+nhid: 128iinit: xaviernet_type: nnRNNlabels: 8T: 200onehot: Falsealpha: 0.99cuda: Falsenonlin: modrelubetas: (0.9, 0.999)batch: 10lr_orth: 1e-06lr: 0.0005optimizer: RMSproprandom_seed: 119alam: 0.0001Tdecay: 1e-06c_length: 10rinit: random

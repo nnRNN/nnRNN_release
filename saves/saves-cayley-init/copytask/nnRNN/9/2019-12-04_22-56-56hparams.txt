@@ -1,0 +1,1 @@
+nonlin: modrelurandom_seed: 9Tdecay: 1e-06alpha: 0.99batch: 10nhid: 128iinit: xavierbetas: (0.9, 0.999)T: 200onehot: Falserinit: cayleynet_type: nnRNNalam: 0.0001lr_orth: 1e-06labels: 8optimizer: RMSpropcuda: Falselr: 0.0005c_length: 10

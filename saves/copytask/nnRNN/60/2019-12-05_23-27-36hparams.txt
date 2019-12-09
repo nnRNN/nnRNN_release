@@ -1,1 +1,0 @@
-optimizer: RMSpropgamma_zero_gradient: Falselr: 0.0005c_length: 10alpha: 0.99net_type: nnRNNalam: 0.0001batch: 10labels: 8nonlin: modrelubetas: (0.9, 0.999)nhid: 256iinit: xavierT: 200lr_orth: 1e-06cuda: Falseonehot: Truerinit: henaffTdecay: 1e-06random_seed: 60

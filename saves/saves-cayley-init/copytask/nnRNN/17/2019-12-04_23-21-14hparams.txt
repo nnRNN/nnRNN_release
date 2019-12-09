@@ -1,0 +1,1 @@
+optimizer: RMSpropbatch: 10Tdecay: 1e-06betas: (0.9, 0.999)nhid: 128cuda: Falsealam: 0.0001nonlin: modrelualpha: 0.99random_seed: 17lr: 0.0005iinit: xavieronehot: Falselabels: 8lr_orth: 1e-06T: 200net_type: nnRNNc_length: 10rinit: cayley

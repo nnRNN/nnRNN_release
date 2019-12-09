@@ -1,0 +1,1 @@
+nonlin: modreluoptimizer: Adamonehot: Falsec_length: 10lr_orth: 1e-06batch: 10T: 200lr: 0.0005Tdecay: 1e-06cuda: Falsebetas: (0.9, 0.999)random_seed: 920iinit: xaviernhid: 128alpha: 0.99alam: 0.0001gamma_zero_gradient: Falsenet_type: nnRNNlabels: 8rinit: cayley

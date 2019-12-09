@@ -1,1 +1,0 @@
-batch: 10cuda: Falsenonlin: modrelunet_type: nnRNNrinit: henaffonehot: Truenhid: 256lr: 0.0005random_seed: 61T: 200lr_orth: 1e-06optimizer: RMSpropiinit: xavieralam: 0.0001Tdecay: 1e-06betas: (0.9, 0.999)alpha: 0.99gamma_zero_gradient: Falsec_length: 10labels: 8

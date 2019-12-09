@@ -1,1 +1,0 @@
-T: 200iinit: xavierrinit: cayleyalpha: 0.99random_seed: 5betas: (0.9, 0.999)lr_orth: 1e-06cuda: Falsebatch: 10c_length: 10nonlin: modrelulabels: 8Tdecay: 1e-06optimizer: RMSpropnet_type: nnRNNnhid: 128lr: 0.0005onehot: Falsealam: 0.0001

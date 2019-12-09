@@ -1,0 +1,1 @@
+betas: (0.9, 0.999)random_seed: 16iinit: xaviercuda: Falsenhid: 128alam: 0.0001alpha: 0.99batch: 10lr: 0.0005optimizer: RMSpropnonlin: modreluTdecay: 1e-06labels: 8c_length: 10rinit: cayleylr_orth: 1e-06T: 200net_type: nnRNNonehot: False

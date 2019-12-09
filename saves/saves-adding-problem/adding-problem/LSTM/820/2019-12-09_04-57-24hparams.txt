@@ -1,0 +1,1 @@
+alpha: 0.99optimizer: RMSpropno_of_ones: 2labels: 8net_type: LSTMT: 200c_length: 100random_seed: 820betas: (0.9, 0.999)Tdecay: 1e-05gamma_zero_gradient: Falsealam: 0.0001nonlin: modreluonehot: Falsenhid: 128lr_orth: 2e-05cuda: Falserinit: henaffiinit: xavierlr: 0.0002batch: 10

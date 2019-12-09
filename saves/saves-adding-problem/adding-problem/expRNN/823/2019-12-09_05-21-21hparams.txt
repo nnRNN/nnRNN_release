@@ -1,0 +1,1 @@
+random_seed: 823labels: 8lr_orth: 2e-05no_of_ones: 2onehot: Falselr: 0.0002optimizer: RMSpropalpha: 0.99net_type: expRNNc_length: 100rinit: henaffbetas: (0.9, 0.999)gamma_zero_gradient: FalseTdecay: 1e-05iinit: xavieralam: 0.0001nhid: 128batch: 10cuda: FalseT: 200nonlin: modrelu

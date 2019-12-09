@@ -1,1 +1,0 @@
-net_type: nnRNNiinit: xaviernhid: 128Tdecay: 1e-06onehot: Falserinit: randomoptimizer: RMSproplr_orth: 1e-06T: 200nonlin: modrelurandom_seed: 102c_length: 10alpha: 0.99alam: 0.0001lr: 0.0005cuda: Falsebatch: 10betas: (0.9, 0.999)labels: 8
