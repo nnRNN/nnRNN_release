@@ -43,7 +43,7 @@ def str2bool(v):
         raise argparse.ArgumentTypeError('Boolean value expected.')
 
 
-def select_network(args, inp_size):
+def select_network(inp_size, args):
     iinit, rinit = get_initializers(args)
     if args.net_type == 'RNN':
         rnn = RNNCell(inp_size,args.nhid,
@@ -66,6 +66,7 @@ def select_network(args, inp_size):
         rnn = LSTM(inp_size,
                    args.nhid,
                    cuda=args.cuda)
+    print("rnn: ", rnn)
     return rnn
 
 def calc_hidden_size(net_type, n_params, n_in, n_out):

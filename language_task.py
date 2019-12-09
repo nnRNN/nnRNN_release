@@ -34,6 +34,8 @@ class Corpus(object):
 
     def tokenize(self, path):
         """Tokenizes a text file."""
+        print("path: ", path)
+
         assert os.path.exists(path)
         # Add words to the dictionary
         with open(path, 'r') as f:
@@ -113,9 +115,10 @@ parser.add_argument('--epochs', type=int, default=100,
 parser.add_argument('--bptt', type=int, default=150,
                     help='sequence length')
 parser.add_argument('--cuda', action='store_true', default=False, help='use cuda')
+parser.add_argument('--tied', action='store_true', default=False, help='For tie weights')
 parser.add_argument('--seed', type=int, default=400,
                     help='random seed')
-parser.add_argument('--batch', type=int, default=128, metavar='N',
+parser.add_argument('--batch-size', type=int, default=128, metavar='N',
                     help='batch size')
 parser.add_argument('--log-interval', type=int, default=200, metavar='N',
                     help='report interval')
@@ -157,7 +160,7 @@ if torch.cuda.is_available():
 # Load data
 ###############################################################################
 
-corpus = Corpus('./data/pennchar/')
+corpus = Corpus('//home/madhusudhan/ptb-data/')
 
 def batchify(data, bsz):
     # Work out how cleanly we can divide the dataset into bsz parts.
@@ -291,7 +294,7 @@ def train(optimizer, orthog_optimizer):
     return np.mean(losses)
 # Loop over epochs.
 lr = args.lr
-decay = args.weight_decay
+# decay = args.weight_decay
 best_val_loss = None
 
 
@@ -305,7 +308,7 @@ try:
     SAVEDIR = os.path.join('./saves',
                            'sMNIST',
                            NET_TYPE,
-                           str(args.random_seed),
+                           str(args.seed),
                            exp_time)
 
     if not os.path.exists(SAVEDIR):
