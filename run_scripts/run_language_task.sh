@@ -1,0 +1,1 @@
+python3 language_task.py --net-type expRNN --nhid 1024 --cuda --T 1 --alpha 0.9 --lr 10e-3 --rinit cayley
