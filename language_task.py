@@ -306,7 +306,7 @@ if orthog_optimizer:
 try:
     exp_time = "{0:%Y-%m-%d}_{0:%H-%M-%S}".format(datetime.now())
     SAVEDIR = os.path.join('./saves',
-                           'sMNIST',
+                           'language-task',
                            NET_TYPE,
                            str(args.seed),
                            exp_time)

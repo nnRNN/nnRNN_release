@@ -87,14 +87,14 @@ def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2):
     # print(seq_len)
     X_num = np.random.uniform(low=0, high=high, size=(N, seq_len, 1))
     X_mask = np.zeros((N, seq_len, 1))
-    Y = np.zeros((N, seq_len, 1))
-    # Y = np.ones((N, 1))
+    # Y = np.zeros((N, seq_len, 1))
+    Y = np.ones((N, 1))
     for i in range(N):
         # Default uniform distribution on position sampling
         positions = np.random.choice(seq_len, size=number_of_ones, replace=False)
         X_mask[i, positions] = 1
-        # Y[i, 0] = np.sum(X_num[i, positions])
-        Y[i,-1, 0] = np.sum(X_num[i, positions])
+        Y[i, 0] = np.sum(X_num[i, positions])
+        # Y[i,-1, 0] = np.sum(X_num[i, positions])
     X = np.append(X_num, X_mask, axis=2)
     return torch.FloatTensor(X), torch.FloatTensor(Y)
 # X, y = adding_problem_generator(10)
@@ -181,9 +181,10 @@ class Model(nn.Module):
                 accuracy += correct.sum().item()
         # print("out size and y[i]: ", out.size(), y.squeeze(1).t())
         # print(out.size())
-            loss += self.loss_func(out, y[i].squeeze(1).t())
+        # loss += self.loss_func(out-out+1, y.squeeze(1).t())
+        loss += self.loss_func(out, y.squeeze(1).t())
         accuracy /= (args.c_length*x.shape[1])
-        loss /= (x.shape[0])
+        # loss /= (x.shape[0])
         # print("loss: ", loss)
         return loss, accuracy
 
@@ -237,6 +238,7 @@ def train_model(net, optimizer, batch_size, T, n_steps):
         print('Update {}, Time for Update: {} , Average Loss: {}, Accuracy: {}'
               .format(i +1, time.time()- s_t, loss_act.item(), accuracy))
     
+    print("Average loss: ", np.mean(np.array(losses)))
     
     with open(SAVEDIR + '{}_Train_Losses'.format(NET_TYPE), 'wb') as fp:
         pickle.dump(losses, fp)
@@ -273,7 +275,7 @@ Tdecay = args.Tdecay
 hidden_size = args.nhid
 n_steps = 800
 exp_time = "{0:%Y-%m-%d}_{0:%H-%M-%S}".format(datetime.now())
-SAVEDIR = os.path.join('./saves', 'copytask',
+SAVEDIR = os.path.join('./saves', 'adding-problem',
                        NET_TYPE, str(random_seed),exp_time)
 
 torch.cuda.manual_seed(random_seed)

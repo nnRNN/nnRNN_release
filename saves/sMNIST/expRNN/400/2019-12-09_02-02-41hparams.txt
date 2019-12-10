@@ -1,1 +1,0 @@
-net_type: expRNNemsize: 200nhid: 1024epochs: 100bptt: 150cuda: Falsetied: Falseseed: 400batch_size: 128log_interval: 200save: model.ptlr: 0.01lr_orth: 8e-05rinit: cayleyiinit: kaimingnonlin: modrelualam: 1Tdecay: 0.0001optimizer: RMSpropalpha: 0.9betas: (0.0, 0.9)

@@ -43,7 +43,7 @@ def str2bool(v):
         raise argparse.ArgumentTypeError('Boolean value expected.')
 
 
-def select_network(inp_size, args):
+def select_network(args, inp_size):
     iinit, rinit = get_initializers(args)
     if args.net_type == 'RNN':
         rnn = RNNCell(inp_size,args.nhid,

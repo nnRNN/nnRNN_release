@@ -1,0 +1,1 @@
+batch: 10labels: 8onehot: Falsecuda: Falsegamma_zero_gradient: Falsec_length: 100betas: (0.9, 0.999)nhid: 512iinit: xavierT: 200lr_orth: 2e-05Tdecay: 1e-05lr: 0.0002alam: 0.0001nonlin: modrelualpha: 0.99no_of_ones: 2optimizer: RMSpropnet_type: nnRNNrandom_seed: 845rinit: henaff

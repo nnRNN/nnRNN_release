@@ -94,6 +94,7 @@ class OrthoRNNCell(nn.Module):
         super(OrthoRNNCell,self).__init__()
         self.cudafy = cuda
         self.hidden_size = hid_size
+        
         #Add Non linearity
         if nonlin == 'relu':
             self.nonlinearity = nn.ReLU()
@@ -126,6 +127,7 @@ class OrthoRNNCell(nn.Module):
         self.UppT = UppT
         self.UppT = nn.Parameter(self.UppT)
         self.M = torch.triu(torch.ones_like(self.UppT),diagonal=1)
+        self.D = torch.zeros_like(self.UppT)
         
 
 
@@ -180,6 +182,8 @@ class OrthoRNNCell(nn.Module):
     def orthogonal_step(self,optimizer):
         A = self._A(False)
         B = self.P.data
+        # print("P: ", self.P)
+        # print("P.grad: ", self.P.grad)
         G = self.P.grad.data
         BtG = B.t().mm(G)
         grad = 0.5*(BtG - BtG.t())

@@ -1,0 +1,1 @@
+gamma_zero_gradient: FalseTdecay: 1e-05betas: (0.9, 0.999)optimizer: RMSproplr: 0.0002labels: 8c_length: 100alpha: 0.99random_seed: 842lr_orth: 2e-05alam: 0.0001net_type: expRNNbatch: 10T: 200cuda: Falseno_of_ones: 2rinit: henaffiinit: xavieronehot: Falsenhid: 512nonlin: modrelu

@@ -1,0 +1,1 @@
+net_type: LSTMT: 200nonlin: modrelubatch: 10alam: 0.0001random_seed: 841no_of_ones: 2lr: 0.0002rinit: henaffoptimizer: RMSpropnhid: 128betas: (0.9, 0.999)labels: 8iinit: xaviercuda: Falsealpha: 0.99lr_orth: 2e-05Tdecay: 1e-05onehot: Falsec_length: 100gamma_zero_gradient: False

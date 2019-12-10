@@ -1,0 +1,1 @@
+Tdecay: 1e-05c_length: 100gamma_zero_gradient: Falsenet_type: RNNnonlin: tanhrinit: henafflr_orth: 2e-05iinit: xavierbatch: 10cuda: Falseno_of_ones: 2betas: (0.9, 0.999)onehot: Falsealam: 0.0001random_seed: 843alpha: 0.99optimizer: RMSproplr: 0.0002T: 200labels: 8nhid: 128
