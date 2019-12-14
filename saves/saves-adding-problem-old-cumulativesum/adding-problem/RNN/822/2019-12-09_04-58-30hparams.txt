@@ -1,1 +1,0 @@
-nonlin: modreluonehot: Falselabels: 8c_length: 100net_type: RNNgamma_zero_gradient: Falseoptimizer: RMSpropno_of_ones: 2alam: 0.0001betas: (0.9, 0.999)lr_orth: 2e-05Tdecay: 1e-05random_seed: 822batch: 10alpha: 0.99T: 200cuda: Falseiinit: xaviernhid: 128rinit: henafflr: 0.0002

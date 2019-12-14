@@ -1,0 +1,1 @@
+iinit: xavierepochs: 70alpha: 0.99optimizer: RMSpropcuda: Truepermute: Truerinit: cayleynhid: 512batch: 100lr: 0.0005alam: 0.0001net_type: expRNNbetas: (0.9, 0.999)random_seed: 103lr_orth: 5e-05nonlin: modreluTdecay: 1.0save_freq: 50

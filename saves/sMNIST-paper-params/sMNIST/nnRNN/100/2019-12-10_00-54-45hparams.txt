@@ -1,0 +1,1 @@
+nonlin: modrelucuda: Truerinit: cayleysave_freq: 50batch: 100epochs: 70alpha: 0.99betas: (0.9, 0.999)nhid: 512lr_orth: 2e-05alam: 0.1random_seed: 100optimizer: RMSproppermute: Truelr: 0.0002net_type: nnRNNiinit: xavierTdecay: 0.0001

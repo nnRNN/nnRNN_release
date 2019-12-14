@@ -1,0 +1,1 @@
+random_seed: 10841rinit: cayleyno_of_ones: 2nhid: 512nonlin: modrelualam: 0.0001Tdecay: 1e-05T: 200optimizer: RMSpropc_length: 100onehot: Falsealpha: 0.99cuda: Falsebatch: 10lr: 0.0002betas: (0.9, 0.999)net_type: expRNNlabels: 8gamma_zero_gradient: Falselr_orth: 2e-05iinit: xavier

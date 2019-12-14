@@ -1,0 +1,1 @@
+nonlin: modreluiinit: xavierc_length: 100rinit: cayleybetas: (0.9, 0.999)alpha: 0.99Tdecay: 1e-05nhid: 512gamma_zero_gradient: Falsebatch: 10lr_orth: 2e-05alam: 0.0001optimizer: RMSpropT: 200no_of_ones: 2net_type: nnRNNcuda: Falserandom_seed: 941lr: 0.0002onehot: Falselabels: 8

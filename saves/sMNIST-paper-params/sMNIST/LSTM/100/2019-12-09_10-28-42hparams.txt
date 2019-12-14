@@ -1,0 +1,1 @@
+rinit: xavierlr_orth: 2e-05save_freq: 50permute: Truenet_type: LSTMnhid: 512epochs: 70nonlin: modrelualam: 0.0001alpha: 0.99random_seed: 100Tdecay: 1.0lr: 0.0005batch: 100optimizer: RMSpropiinit: xaviercuda: Falsebetas: (0.9, 0.999)

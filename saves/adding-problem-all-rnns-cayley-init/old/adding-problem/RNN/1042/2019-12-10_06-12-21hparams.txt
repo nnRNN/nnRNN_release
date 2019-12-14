@@ -1,0 +1,1 @@
+nonlin: tanhc_length: 100nhid: 128betas: (0.9, 0.999)alam: 0.0001no_of_ones: 2gamma_zero_gradient: Falseoptimizer: RMSpropT: 200Tdecay: 1e-05rinit: henafflr_orth: 2e-05net_type: RNNlr: 0.0002onehot: Falsecuda: Falserandom_seed: 1042alpha: 0.99iinit: xavierlabels: 8batch: 10

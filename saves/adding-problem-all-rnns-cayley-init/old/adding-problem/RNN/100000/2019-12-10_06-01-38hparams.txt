@@ -1,0 +1,1 @@
+betas: (0.9, 0.999)rinit: henaffonehot: FalseT: 200nonlin: tanhoptimizer: RMSpropTdecay: 1e-05lr: 0.0002nhid: 128c_length: 100gamma_zero_gradient: Falsecuda: Falselabels: 8random_seed: 100000no_of_ones: 2net_type: RNNalpha: 0.99lr_orth: 2e-05alam: 0.0001iinit: xavierbatch: 10

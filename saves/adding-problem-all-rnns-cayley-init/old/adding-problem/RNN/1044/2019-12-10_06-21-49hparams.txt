@@ -1,0 +1,1 @@
+net_type: RNNrinit: henaffcuda: Falserandom_seed: 1044gamma_zero_gradient: Falsealpha: 0.99nhid: 128c_length: 100alam: 0.0001iinit: xavierlr_orth: 2e-05Tdecay: 1e-05betas: (0.9, 0.999)T: 200nonlin: tanhonehot: Falselabels: 8batch: 10lr: 0.0002no_of_ones: 2optimizer: RMSprop

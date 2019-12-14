@@ -1,1 +1,0 @@
-iinit: xavieroptimizer: RMSpropnhid: 128onehot: Falselabels: 8no_of_ones: 2alam: 0.0001Tdecay: 1e-05c_length: 100random_seed: 823lr: 0.0002rinit: henaffnet_type: LSTMgamma_zero_gradient: FalseT: 200cuda: Falsebetas: (0.9, 0.999)lr_orth: 2e-05alpha: 0.99nonlin: modrelubatch: 10

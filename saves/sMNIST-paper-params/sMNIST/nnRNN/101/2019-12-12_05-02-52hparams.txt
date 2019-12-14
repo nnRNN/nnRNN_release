@@ -1,0 +1,1 @@
+optimizer: RMSpropsave_freq: 50lr: 0.0002nhid: 512betas: (0.9, 0.999)iinit: xavierepochs: 70nonlin: modrelubatch: 100permute: Truerinit: cayleyTdecay: 0.0001alam: 0.1random_seed: 101alpha: 0.99lr_orth: 2e-05cuda: Truenet_type: nnRNN

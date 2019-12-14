@@ -1,0 +1,1 @@
+batch: 10betas: (0.9, 0.999)rinit: cayleyno_of_ones: 2onehot: Falsealam: 0.0001cuda: Falsealpha: 0.99random_seed: 1045lr: 0.0002T: 200gamma_zero_gradient: Falsec_length: 100nhid: 512optimizer: RMSpropnet_type: nnRNNTdecay: 1e-05iinit: xavierlr_orth: 2e-05labels: 8nonlin: modrelu

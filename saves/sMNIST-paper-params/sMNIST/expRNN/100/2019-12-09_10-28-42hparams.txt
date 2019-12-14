@@ -1,0 +1,1 @@
+nhid: 512iinit: xavieralam: 0.0001permute: Truerinit: cayleysave_freq: 50alpha: 0.99random_seed: 100epochs: 70Tdecay: 1.0net_type: expRNNlr: 0.0005lr_orth: 5e-05betas: (0.9, 0.999)nonlin: modrelubatch: 100optimizer: RMSpropcuda: False

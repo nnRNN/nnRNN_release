@@ -1,0 +1,1 @@
+nonlin: modrelualam: 0.0001optimizer: RMSproplr_orth: 2e-05nhid: 512epochs: 70alpha: 0.9lr: 0.0001permute: Truerandom_seed: 100iinit: xaviersave_freq: 50batch: 100betas: (0.9, 0.999)net_type: RNNrinit: xavierTdecay: 1.0cuda: False

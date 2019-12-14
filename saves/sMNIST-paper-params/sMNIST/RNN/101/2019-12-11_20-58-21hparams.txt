@@ -1,0 +1,1 @@
+optimizer: RMSproprinit: xavieralam: 0.0001nhid: 512save_freq: 50net_type: RNNiinit: xavierlr: 0.0001Tdecay: 1.0alpha: 0.9betas: (0.9, 0.999)batch: 100cuda: Truenonlin: modrelurandom_seed: 101permute: Truelr_orth: 2e-05epochs: 70

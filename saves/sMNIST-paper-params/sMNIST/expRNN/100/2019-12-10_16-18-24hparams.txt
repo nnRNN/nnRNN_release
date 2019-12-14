@@ -1,0 +1,1 @@
+epochs: 70batch: 100save_freq: 50cuda: Truerandom_seed: 100alam: 0.0001optimizer: RMSpropalpha: 0.99net_type: expRNNTdecay: 1.0nonlin: modrelulr_orth: 5e-05rinit: cayleybetas: (0.9, 0.999)permute: Trueiinit: xavierlr: 0.0005nhid: 512

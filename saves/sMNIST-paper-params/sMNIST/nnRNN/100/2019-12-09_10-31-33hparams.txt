@@ -1,0 +1,1 @@
+betas: (0.9, 0.999)iinit: xaviernhid: 512random_seed: 100batch: 100permute: Truecuda: Falselr_orth: 2e-05optimizer: RMSproplr: 0.0002alpha: 0.99save_freq: 50net_type: nnRNNTdecay: 0.0001epochs: 70rinit: cayleynonlin: modrelualam: 0.1

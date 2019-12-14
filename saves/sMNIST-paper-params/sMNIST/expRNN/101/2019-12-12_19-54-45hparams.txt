@@ -1,0 +1,1 @@
+save_freq: 50alam: 0.0001rinit: cayleycuda: Trueoptimizer: RMSpropiinit: xavierlr: 0.0005betas: (0.9, 0.999)net_type: expRNNepochs: 70batch: 100random_seed: 101nhid: 512Tdecay: 1.0nonlin: modrelulr_orth: 5e-05alpha: 0.99permute: True

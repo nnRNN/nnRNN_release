@@ -1,0 +1,1 @@
+betas: (0.9, 0.999)net_type: LSTMoptimizer: RMSpropalam: 0.0001rinit: henafflr_orth: 2e-05no_of_ones: 2T: 200c_length: 100cuda: Falselr: 0.0002alpha: 0.99nhid: 128gamma_zero_gradient: Falsenonlin: modreluiinit: xavierTdecay: 1e-05random_seed: 845labels: 8onehot: Falsebatch: 10

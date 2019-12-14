@@ -1,1 +1,0 @@
-cuda: Falseonehot: Falserandom_seed: 821c_length: 100no_of_ones: 2net_type: expRNNlr: 0.0002batch: 10labels: 8rinit: henaffalpha: 0.99nhid: 128optimizer: RMSpropnonlin: modreluiinit: xavierbetas: (0.9, 0.999)lr_orth: 2e-05Tdecay: 1e-05T: 200alam: 0.0001gamma_zero_gradient: False

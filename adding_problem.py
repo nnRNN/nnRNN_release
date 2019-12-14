@@ -31,7 +31,7 @@ parser.add_argument('--onehot', action='store_true',
                     default=False, help='Onehot inputs')
 
 parser.add_argument('--batch', type=int,
-                    default=10, help='batch size')
+                    default=1, help='batch size')
 parser.add_argument('--lr', type=float, default=2e-4)
 parser.add_argument('--lr_orth', type=float, default=2e-5)
 parser.add_argument('--optimizer',type=str, default='RMSprop',
@@ -42,7 +42,7 @@ parser.add_argument('--alpha',type=float,
 parser.add_argument('--betas',type=tuple,
                     default=(0.9, 0.999), help='beta values for Adam')
 
-parser.add_argument('--rinit', type=str, default="henaff",
+parser.add_argument('--rinit', type=str, default="cayley",
                     choices=['random', 'cayley', 'henaff', 'xavier'],
                     help='recurrent weight matrix initialization')
 parser.add_argument('--iinit', type=str, default="xavier",
@@ -239,7 +239,8 @@ def train_model(net, optimizer, batch_size, T, n_steps):
               .format(i +1, time.time()- s_t, loss_act.item(), accuracy))
     
     print("Average loss: ", np.mean(np.array(losses)))
-    
+    theta_list = net.rnn.get_theta_list()
+    print(theta_list)
     with open(SAVEDIR + '{}_Train_Losses'.format(NET_TYPE), 'wb') as fp:
         pickle.dump(losses, fp)
 
@@ -273,7 +274,7 @@ CUDA = args.cuda
 alam = args.alam
 Tdecay = args.Tdecay
 hidden_size = args.nhid
-n_steps = 800
+n_steps = 1
 exp_time = "{0:%Y-%m-%d}_{0:%H-%M-%S}".format(datetime.now())
 SAVEDIR = os.path.join('./saves', 'adding-problem',
                        NET_TYPE, str(random_seed),exp_time)

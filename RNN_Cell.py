@@ -94,7 +94,7 @@ class OrthoRNNCell(nn.Module):
         super(OrthoRNNCell,self).__init__()
         self.cudafy = cuda
         self.hidden_size = hid_size
-        
+        self.theta_list = []
         #Add Non linearity
         if nonlin == 'relu':
             self.nonlinearity = nn.ReLU()
@@ -195,6 +195,9 @@ class OrthoRNNCell(nn.Module):
         self.P.data = self._B(False)
         self.P.grad.data.zero_()
 
+    def get_theta_list(self):
+        return self.theta_list
+
     def forward(self, x,hidden=None):
         if hidden is None:
             hidden = x.new_zeros(x.shape[0],self.hidden_size, requires_grad=True)
@@ -207,7 +210,8 @@ class OrthoRNNCell(nn.Module):
         h = self.U(x) + torch.matmul(hidden,self.rec)
         if self.nonlinearity:
             h = self.nonlinearity(h)
-
+        self.theta_list.append(torch.mul(self.UppT, self.M) + torch.mul(self.alpha_block, self.D))
+        # self.rec_list.append(self.rec)
         return h
 
     def calc_rec(self):
