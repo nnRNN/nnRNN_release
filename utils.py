@@ -51,7 +51,7 @@ def select_network(args, inp_size):
                       bias=True,
                       cuda=args.cuda,
                       r_initializer=rinit,
-                      i_initializer=iinit)
+                      i_initializer=iinit)        
     elif args.net_type == 'nnRNN':
         rnn = OrthoRNNCell(inp_size,args.nhid,args.nonlin,
                            bias=False,
@@ -66,6 +66,7 @@ def select_network(args, inp_size):
         rnn = LSTM(inp_size,
                    args.nhid,
                    cuda=args.cuda)
+    # print("rnn: ", rnn.parameters)
     return rnn
 
 def calc_hidden_size(net_type, n_params, n_in, n_out):

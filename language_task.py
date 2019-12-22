@@ -64,7 +64,8 @@ class RNNModel(nn.Module):
         self.encoder = nn.Embedding(ntoken, ninp)
         self.rnn = rnn
         self.decoder = nn.Linear(nhid, ntoken)
-        self.params = rnn.params + [self.encoder.weight,self.decoder.weight,self.decoder.bias]
+        print(rnn)
+        # self.params = rnn.params + [self.encoder.weight,self.decoder.weight,self.decoder.bias]
         # Optionally tie weights as in:
         # "Using the Output Embedding to Improve Language Models" (Press & Wolf 2016)
         # https://arxiv.org/abs/1608.05859
@@ -113,7 +114,8 @@ parser.add_argument('--epochs', type=int, default=100,
 parser.add_argument('--bptt', type=int, default=150,
                     help='sequence length')
 parser.add_argument('--cuda', action='store_true', default=False, help='use cuda')
-parser.add_argument('--seed', type=int, default=400,
+parser.add_argument('--tied', action='store_true', default=False, help='For tie weights')
+parser.add_argument('--random-seed', type=int, default=400,
                     help='random seed')
 parser.add_argument('--batch', type=int, default=128, metavar='N',
                     help='batch size')
@@ -144,8 +146,8 @@ args = parser.parse_args()
 
 
 # Set the random seed manually for reproducibility.
-np.random.seed(args.seed)
-torch.manual_seed(args.seed)
+np.random.seed(args.random_seed)
+torch.manual_seed(args.random_seed)
 
 if torch.cuda.is_available():
     if not args.cuda:
@@ -291,7 +293,7 @@ def train(optimizer, orthog_optimizer):
     return np.mean(losses)
 # Loop over epochs.
 lr = args.lr
-decay = args.weight_decay
+decay = args.Tdecay
 best_val_loss = None
 
 
