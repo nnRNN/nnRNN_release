@@ -157,7 +157,7 @@ if torch.cuda.is_available():
 # Load data
 ###############################################################################
 
-corpus = Corpus('./data/pennchar/')
+corpus = Corpus('//home/madhusudhan/ptb-data/')
 
 def batchify(data, bsz):
     # Work out how cleanly we can divide the dataset into bsz parts.
@@ -171,7 +171,7 @@ def batchify(data, bsz):
     return data
 
 eval_batch_size = 10
-train_data = batchify(corpus.train, args.batch_size)
+train_data = batchify(corpus.train, args.batch)
 val_data = batchify(corpus.valid, eval_batch_size)
 test_data = batchify(corpus.test, eval_batch_size)
 
@@ -188,7 +188,7 @@ CUDA = args.cuda
 nonlin = args.nonlin
 
 
-rnn = select_network(inp_size,args)
+rnn = select_network(args, inp_size)
 
 model = RNNModel(rnn, ntokens, inp_size, hid_size, args.tied)
 if args.cuda:
