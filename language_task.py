@@ -159,7 +159,7 @@ if torch.cuda.is_available():
 # Load data
 ###############################################################################
 
-corpus = Corpus('//home/madhusudhan/ptb-data/')
+corpus = Corpus('./data/pennchar/')
 
 def batchify(data, bsz):
     # Work out how cleanly we can divide the dataset into bsz parts.
