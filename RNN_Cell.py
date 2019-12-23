@@ -195,8 +195,8 @@ class OrthoRNNCell(nn.Module):
         self.P.data = self._B(False)
         self.P.grad.data.zero_()
 
-    def get_theta_list(self):
-        return self.theta_list
+    # def get_theta_list(self):
+    #     return self.theta_list
 
     def forward(self, x,hidden=None):
         if hidden is None:
@@ -210,7 +210,7 @@ class OrthoRNNCell(nn.Module):
         h = self.U(x) + torch.matmul(hidden,self.rec)
         if self.nonlinearity:
             h = self.nonlinearity(h)
-        self.theta_list.append(torch.mul(self.UppT, self.M) + torch.mul(self.alpha_block, self.D))
+        # self.theta_list.append(torch.mul(self.UppT, self.M) + torch.mul(self.alpha_block, self.D))
         # self.rec_list.append(self.rec)
         return h
 

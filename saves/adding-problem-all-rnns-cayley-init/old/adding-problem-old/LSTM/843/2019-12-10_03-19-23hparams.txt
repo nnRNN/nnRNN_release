@@ -1,1 +1,0 @@
-T: 200alpha: 0.99alam: 0.0001batch: 10iinit: xavierTdecay: 1e-05no_of_ones: 2lr_orth: 2e-05c_length: 100labels: 8gamma_zero_gradient: Falserinit: henaffonehot: Falseoptimizer: RMSpropnhid: 128lr: 0.0002random_seed: 843betas: (0.9, 0.999)net_type: LSTMcuda: Falsenonlin: modrelu

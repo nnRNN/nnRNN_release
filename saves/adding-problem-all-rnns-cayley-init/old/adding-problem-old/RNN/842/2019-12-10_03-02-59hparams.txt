@@ -1,1 +1,0 @@
-gamma_zero_gradient: Falseoptimizer: RMSproprandom_seed: 842cuda: Falselr_orth: 2e-05T: 200betas: (0.9, 0.999)rinit: henaffnonlin: tanhalpha: 0.99onehot: Falsealam: 0.0001net_type: RNNlabels: 8nhid: 128Tdecay: 1e-05batch: 10iinit: xavierlr: 0.0002no_of_ones: 2c_length: 100

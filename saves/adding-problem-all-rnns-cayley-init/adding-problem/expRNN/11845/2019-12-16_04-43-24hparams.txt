@@ -1,0 +1,1 @@
+betas: (0.9, 0.999)Tdecay: 1e-05rinit: cayleyT: 200iinit: xavierno_of_ones: 2net_type: expRNNalpha: 0.99optimizer: RMSproplr_orth: 2e-05lr: 0.0002random_seed: 11845gamma_zero_gradient: Falsenonlin: modrelualam: 0.0001labels: 8c_length: 100cuda: Falsebatch: 10onehot: Falsenhid: 512

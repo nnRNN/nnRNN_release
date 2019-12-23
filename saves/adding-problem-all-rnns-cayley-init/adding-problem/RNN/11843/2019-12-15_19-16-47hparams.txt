@@ -1,0 +1,1 @@
+optimizer: RMSpropalam: 0.0001no_of_ones: 2lr_orth: 2e-05Tdecay: 1e-05iinit: xavierrandom_seed: 11843onehot: Falsegamma_zero_gradient: Falserinit: henafflabels: 8c_length: 100batch: 10net_type: RNNlr: 0.0002nonlin: tanhnhid: 128alpha: 0.99betas: (0.9, 0.999)T: 200cuda: False

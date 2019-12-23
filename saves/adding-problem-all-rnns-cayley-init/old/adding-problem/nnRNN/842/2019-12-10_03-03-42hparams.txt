@@ -1,1 +1,0 @@
-nhid: 512betas: (0.9, 0.999)alpha: 0.99alam: 0.0001random_seed: 842rinit: henaffoptimizer: RMSpropnonlin: modreluiinit: xaviernet_type: nnRNNgamma_zero_gradient: Falsecuda: Falselr_orth: 2e-05labels: 8Tdecay: 1e-05T: 200no_of_ones: 2batch: 10lr: 0.0002c_length: 100onehot: False

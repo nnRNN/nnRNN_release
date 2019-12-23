@@ -1,1 +1,0 @@
-net_type: expRNNoptimizer: RMSpropgamma_zero_gradient: Falselr_orth: 2e-05betas: (0.9, 0.999)T: 200Tdecay: 1e-05cuda: Falselabels: 8nonlin: modreluno_of_ones: 2c_length: 100batch: 10onehot: Falserandom_seed: 1801alpha: 0.99lr: 0.0002iinit: xavierrinit: henaffnhid: 128alam: 0.0001

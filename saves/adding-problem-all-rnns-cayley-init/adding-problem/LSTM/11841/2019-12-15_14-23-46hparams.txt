@@ -1,0 +1,1 @@
+rinit: henaffrandom_seed: 11841alpha: 0.99onehot: Falsenhid: 128batch: 10nonlin: modreluTdecay: 1e-05iinit: xaviernet_type: LSTMgamma_zero_gradient: Falselr: 0.0002labels: 8cuda: Falsebetas: (0.9, 0.999)alam: 0.0001T: 200lr_orth: 2e-05optimizer: RMSpropc_length: 100no_of_ones: 2

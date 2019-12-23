@@ -1,0 +1,1 @@
+lr: 0.0002nonlin: tanhnet_type: RNNrinit: henaffonehot: Falsebetas: (0.9, 0.999)labels: 8lr_orth: 2e-05Tdecay: 1e-05c_length: 100random_seed: 11844alam: 0.0001optimizer: RMSpropalpha: 0.99nhid: 128no_of_ones: 2batch: 10T: 200gamma_zero_gradient: Falsecuda: Falseiinit: xavier

@@ -1,1 +1,0 @@
-gamma_zero_gradient: Falserinit: cayleylr: 0.0002cuda: FalseT: 200no_of_ones: 2alam: 0.0001nonlin: modrelulr_orth: 2e-05labels: 8optimizer: RMSpropiinit: xavierrandom_seed: 1042onehot: Falsealpha: 0.99Tdecay: 1e-05betas: (0.9, 0.999)batch: 10net_type: nnRNNnhid: 512c_length: 100

@@ -1,0 +1,1 @@
+iinit: xaviernet_type: LSTMlr_orth: 2e-05optimizer: RMSpropgamma_zero_gradient: Falsecuda: Falseno_of_ones: 2alam: 0.0001alpha: 0.99rinit: henaffnonlin: modrelulr: 0.0002betas: (0.9, 0.999)T: 200random_seed: 11840labels: 8c_length: 100Tdecay: 1e-05nhid: 128batch: 10onehot: False

@@ -1,1 +1,0 @@
-labels: 8onehot: Falsenonlin: modreluoptimizer: RMSproplr_orth: 2e-05alpha: 0.99batch: 10net_type: expRNNc_length: 100alam: 0.0001gamma_zero_gradient: Falsenhid: 512rinit: cayleyTdecay: 1e-05betas: (0.9, 0.999)cuda: FalseT: 200random_seed: 1040iinit: xavierlr: 0.0002no_of_ones: 2

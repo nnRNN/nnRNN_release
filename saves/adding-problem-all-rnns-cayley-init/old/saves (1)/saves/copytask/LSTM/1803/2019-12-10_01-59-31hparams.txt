@@ -1,1 +1,0 @@
-betas: (0.9, 0.999)labels: 8net_type: LSTMonehot: Falsealpha: 0.99T: 200Tdecay: 1e-05iinit: xaviernonlin: modreluoptimizer: RMSproprandom_seed: 1803alam: 0.0001gamma_zero_gradient: Falsecuda: Falserinit: henaffbatch: 10lr: 0.0002lr_orth: 2e-05nhid: 128c_length: 100no_of_ones: 2

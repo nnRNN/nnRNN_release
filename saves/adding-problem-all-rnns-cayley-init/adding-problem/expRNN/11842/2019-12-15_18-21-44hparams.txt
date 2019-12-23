@@ -1,0 +1,1 @@
+labels: 8net_type: expRNNbetas: (0.9, 0.999)no_of_ones: 2rinit: cayleybatch: 10optimizer: RMSpropgamma_zero_gradient: FalseT: 200c_length: 100alpha: 0.99random_seed: 11842lr: 0.0002alam: 0.0001nhid: 512onehot: FalseTdecay: 1e-05cuda: Falseiinit: xaviernonlin: modrelulr_orth: 2e-05

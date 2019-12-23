@@ -1,0 +1,1 @@
+rinit: cayleynhid: 512cuda: Falsenonlin: modreluiinit: xaviernet_type: expRNNc_length: 100optimizer: RMSpropalam: 0.0001lr: 0.0002T: 200Tdecay: 1e-05labels: 8onehot: Falsealpha: 0.99gamma_zero_gradient: Falseno_of_ones: 2batch: 10betas: (0.9, 0.999)random_seed: 11844lr_orth: 2e-05

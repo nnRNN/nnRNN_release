@@ -1,0 +1,1 @@
+random_seed: 11845nhid: 512gamma_zero_gradient: Falsenet_type: nnRNNT: 200betas: (0.9, 0.999)nonlin: modreluno_of_ones: 2optimizer: RMSpropbatch: 10alpha: 0.99onehot: Falsealam: 0.0001lr: 0.0002rinit: cayleylr_orth: 2e-05c_length: 100cuda: FalseTdecay: 1e-05labels: 8iinit: xavier

@@ -1,1 +1,0 @@
-lr_orth: 2e-05alpha: 0.99cuda: Falsebatch: 10nhid: 512lr: 0.0002random_seed: 1045Tdecay: 1e-05labels: 8iinit: xavieralam: 0.0001betas: (0.9, 0.999)gamma_zero_gradient: Falsec_length: 100T: 200nonlin: modrelunet_type: expRNNrinit: cayleyoptimizer: RMSproponehot: Falseno_of_ones: 2

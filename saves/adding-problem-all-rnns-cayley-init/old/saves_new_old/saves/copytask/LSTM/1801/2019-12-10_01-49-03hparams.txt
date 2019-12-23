@@ -1,1 +1,0 @@
-Tdecay: 1e-05nonlin: modrelurinit: henaffalam: 0.0001iinit: xavierrandom_seed: 1801alpha: 0.99batch: 10net_type: LSTMgamma_zero_gradient: Falselr: 0.0002c_length: 100labels: 8lr_orth: 2e-05T: 200cuda: Falseonehot: Falsebetas: (0.9, 0.999)nhid: 128no_of_ones: 2optimizer: RMSprop

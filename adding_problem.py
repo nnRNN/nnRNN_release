@@ -7,6 +7,7 @@ import time
 import os
 from utils import select_network, select_optimizer, str2bool
 from datetime import datetime
+import math
 
 parser = argparse.ArgumentParser(description='auglang parameters')
 
@@ -60,47 +61,29 @@ parser.add_argument('--gamma-zero-gradient', type=str2bool,
 
 args = parser.parse_args()
 
-def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2):
-    """ A data generator for adding problem.
-
-    The data definition strictly follows Quoc V. Le, Navdeep Jaitly, Geoffrey E.
-    Hintan's paper, A Simple Way to Initialize Recurrent Networks of Rectified
-    Linear Units.
-
-    The single datum entry is a 2D vector with two rows with same length.
-    The first row is a list of random data; the second row is a list of binary
-    mask with all ones, except two positions sampled by uniform distribution.
-    The corresponding label entry is the sum of the masked data. For
-    example:
-
-     input          label
-     -----          -----
-    1 4 5 3  ----->   9 (4 + 5)
-    0 1 1 0
-
-    :param N: the number of the entries.
-    :param seq_len: the length of a single sequence.
-    :param p: the probability of 1 in generated mask
-    :param high: the random data is sampled from a [0, high] uniform distribution.
-    :return: (X, Y), X the data, Y the label.
+def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2): 
+    """ 
+    Code adopted from https://minpy.readthedocs.io/en/latest/tutorial/rnn_tutorial/rnn_tutorial.html
     """
-    # print(seq_len)
     X_num = np.random.uniform(low=0, high=high, size=(N, seq_len, 1))
     X_mask = np.zeros((N, seq_len, 1))
-    # Y = np.zeros((N, seq_len, 1))
     Y = np.ones((N, 1))
     for i in range(N):
         # Default uniform distribution on position sampling
-        positions = np.random.choice(seq_len, size=number_of_ones, replace=False)
-        X_mask[i, positions] = 1
+        
+        positions1 = np.random.choice(math.floor(seq_len/2), size=math.floor(number_of_ones/2), replace=False)
+        positions2 = np.random.choice(math.ceil(seq_len/2), size=math.ceil(number_of_ones/2), replace=False)
+        positions2 = np.array([math.ceil(seq_len/2)+val for val in positions2])
+        positions = []
+        positions.extend(list(positions1))
+        positions.extend(list(positions2))
+        positions = np.array(positions)
+
+        X_mask[i, positions] = 1        
         Y[i, 0] = np.sum(X_num[i, positions])
-        # Y[i,-1, 0] = np.sum(X_num[i, positions])
     X = np.append(X_num, X_mask, axis=2)
     return torch.FloatTensor(X), torch.FloatTensor(Y)
-# X, y = adding_problem_generator(10)
-# print(X.size(), y.size())
-# print(X)
-# print(y)
+
 
 def generate_copying_sequence(T, labels, c_length):
 
@@ -188,7 +171,7 @@ class Model(nn.Module):
         # print("loss: ", loss)
         return loss, accuracy
 
-def train_model(net, optimizer, batch_size, T, n_steps):
+def train_model(net, optimizer, batch_size, n_steps):
 
     accs = []
     losses = []
@@ -201,7 +184,6 @@ def train_model(net, optimizer, batch_size, T, n_steps):
         #     # print("P before: ", torch.mul(net.rnn.UppT, net.rnn.M))
         #     print("Gamma before: ", net.rnn.alphas)
         s_t = time.time()
-        # x,y = create_dataset(batch_size, T, args.c_length)
         x,y = adding_problem_generator(batch_size, seq_len=args.c_length, number_of_ones=args.no_of_ones)
         # print(x.size(), y.size())
         # print(x, y)
@@ -239,8 +221,6 @@ def train_model(net, optimizer, batch_size, T, n_steps):
               .format(i +1, time.time()- s_t, loss_act.item(), accuracy))
     
     print("Average loss: ", np.mean(np.array(losses)))
-    theta_list = net.rnn.get_theta_list()
-    print(theta_list)
     with open(SAVEDIR + '{}_Train_Losses'.format(NET_TYPE), 'wb') as fp:
         pickle.dump(losses, fp)
 
@@ -274,7 +254,7 @@ CUDA = args.cuda
 alam = args.alam
 Tdecay = args.Tdecay
 hidden_size = args.nhid
-n_steps = 1
+n_steps = 20000
 exp_time = "{0:%Y-%m-%d}_{0:%H-%M-%S}".format(datetime.now())
 SAVEDIR = os.path.join('./saves', 'adding-problem',
                        NET_TYPE, str(random_seed),exp_time)
@@ -313,4 +293,4 @@ optimizer, orthog_optimizer = select_optimizer(net, args)
 with open(SAVEDIR + 'hparams.txt','w') as fp:
     for key, val in args.__dict__.items():
         fp.write(('{}: {}'.format(key,val)))
-train_model(net, optimizer, batch_size, T, n_steps)
+train_model(net, optimizer, batch_size, n_steps)
