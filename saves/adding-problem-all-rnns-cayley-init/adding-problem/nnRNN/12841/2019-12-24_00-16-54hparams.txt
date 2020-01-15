@@ -1,0 +1,1 @@
+betas: (0.9, 0.999)rinit: cayleyoptimizer: RMSpropbatch: 1c_length: 100Tdecay: 1e-05cuda: Falselr: 0.0002alam: 0.0001onehot: Falsenonlin: modrelunet_type: nnRNNrandom_seed: 12841nhid: 512labels: 8no_of_ones: 2gamma_zero_gradient: FalseT: 200lr_orth: 2e-05alpha: 0.99iinit: xavier

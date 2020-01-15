@@ -1,0 +1,1 @@
+rinit: cayleyalam: 0.0001betas: (0.9, 0.999)batch: 1T: 200cuda: Falsenet_type: RNNrandom_seed: 12842nonlin: tanhalpha: 0.99no_of_ones: 2gamma_zero_gradient: Falseonehot: FalseTdecay: 1e-05c_length: 100optimizer: RMSproplabels: 8lr_orth: 2e-05lr: 0.0002iinit: xaviernhid: 128

@@ -1,0 +1,1 @@
+onehot: Falsenonlin: modrelunet_type: expRNNnhid: 512cuda: Falseiinit: xavierbetas: (0.9, 0.999)lr: 0.0002batch: 1no_of_ones: 2random_seed: 12843Tdecay: 1e-05alpha: 0.99optimizer: RMSproplr_orth: 2e-05rinit: cayleylabels: 8c_length: 100gamma_zero_gradient: Falsealam: 0.0001T: 200

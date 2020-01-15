@@ -1,0 +1,1 @@
+random_seed: 12840nonlin: modreluiinit: xaviergamma_zero_gradient: Falserinit: cayleyc_length: 100Tdecay: 1e-05no_of_ones: 2onehot: Falselr_orth: 2e-05lr: 0.0002alam: 0.0001betas: (0.9, 0.999)labels: 8optimizer: RMSpropalpha: 0.99T: 200net_type: LSTMnhid: 128batch: 1cuda: False

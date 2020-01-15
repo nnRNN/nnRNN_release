@@ -1,0 +1,1 @@
+alpha: 0.99rinit: cayleygamma_zero_gradient: Falsenhid: 512labels: 8random_seed: 12841net_type: expRNNalam: 0.0001optimizer: RMSpropT: 200batch: 1Tdecay: 1e-05c_length: 100onehot: Falseiinit: xavierno_of_ones: 2betas: (0.9, 0.999)nonlin: modrelulr_orth: 2e-05lr: 0.0002cuda: False

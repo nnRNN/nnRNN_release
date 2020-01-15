@@ -1,0 +1,1 @@
+iinit: xaviercuda: Falserinit: cayleyalam: 0.0001onehot: Falseno_of_ones: 2random_seed: 12844nhid: 128alpha: 0.99batch: 1lr_orth: 2e-05lr: 0.0002optimizer: RMSpropnonlin: tanhT: 200labels: 8c_length: 100Tdecay: 1e-05gamma_zero_gradient: Falsenet_type: RNNbetas: (0.9, 0.999)

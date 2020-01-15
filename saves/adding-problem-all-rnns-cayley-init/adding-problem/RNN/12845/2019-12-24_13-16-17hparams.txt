@@ -1,0 +1,1 @@
+iinit: xavierlabels: 8betas: (0.9, 0.999)lr_orth: 2e-05optimizer: RMSproponehot: Falsecuda: Falsegamma_zero_gradient: Falserandom_seed: 12845alpha: 0.99c_length: 100alam: 0.0001no_of_ones: 2nhid: 128batch: 1Tdecay: 1e-05net_type: RNNT: 200lr: 0.0002nonlin: tanhrinit: cayley
