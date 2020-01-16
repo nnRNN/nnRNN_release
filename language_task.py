@@ -153,7 +153,7 @@ if torch.cuda.is_available():
     if not args.cuda:
         print("WARNING: You have a CUDA device, so you should probably run with --cuda")
     else:
-        torch.cuda.manual_seed(args.seed)
+        torch.cuda.manual_seed(args.random_seed)
 
 ###############################################################################
 # Load data
