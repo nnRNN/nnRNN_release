@@ -1,1 +1,0 @@
-iinit: xaviernet_type: nnRNNlr: 0.0005onehot: FalseT: 200alpha: 0.99labels: 8rinit: randomcuda: Falserandom_seed: 200Tdecay: 1e-06nhid: 128betas: (0.9, 0.999)alam: 0.0001lr_orth: 1e-06c_length: 10optimizer: RMSpropbatch: 10nonlin: modrelu

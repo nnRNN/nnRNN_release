@@ -1,1 +1,0 @@
-nhid: 128c_length: 10net_type: nnRNNrandom_seed: 40nonlin: modrelualpha: 0.99alam: 0.0001T: 200optimizer: RMSpropcuda: Falseiinit: xavierlr: 0.0005lr_orth: 1e-06gamma_zero_gradient: Truebetas: (0.9, 0.999)onehot: Truebatch: 10Tdecay: 1e-06rinit: henafflabels: 8

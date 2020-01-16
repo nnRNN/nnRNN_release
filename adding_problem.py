@@ -71,6 +71,8 @@ def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2):
     for i in range(N):
         # Default uniform distribution on position sampling
         
+        ''' Random positions such that first entry of 1 is in the first half of the sequence and 
+        the second entry is in the second half of the sequence'''
         positions1 = np.random.choice(math.floor(seq_len/2), size=math.floor(number_of_ones/2), replace=False)
         positions2 = np.random.choice(math.ceil(seq_len/2), size=math.ceil(number_of_ones/2), replace=False)
         positions2 = np.array([math.ceil(seq_len/2)+val for val in positions2])

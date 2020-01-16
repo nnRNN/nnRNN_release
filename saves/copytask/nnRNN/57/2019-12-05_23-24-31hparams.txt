@@ -1,1 +1,0 @@
-nhid: 128iinit: xavierT: 200nonlin: modrelulr: 0.0005net_type: nnRNNbetas: (0.9, 0.999)optimizer: RMSproplr_orth: 1e-06Tdecay: 1e-06c_length: 10onehot: Truebatch: 10random_seed: 57rinit: henaffalam: 0.0001labels: 8alpha: 0.99gamma_zero_gradient: Truecuda: False

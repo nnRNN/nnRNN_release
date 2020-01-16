@@ -1,1 +1,0 @@
-betas: (0.9, 0.999)c_length: 10nonlin: modrelunet_type: nnRNNbatch: 10random_seed: 45T: 200labels: 8alam: 0.0001optimizer: RMSproprinit: henaffgamma_zero_gradient: Trueonehot: Truenhid: 128cuda: Falseiinit: xavieralpha: 0.99lr_orth: 1e-06lr: 0.0005Tdecay: 1e-06

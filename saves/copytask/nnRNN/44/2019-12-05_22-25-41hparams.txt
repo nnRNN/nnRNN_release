@@ -1,1 +1,0 @@
-random_seed: 44cuda: Falsealpha: 0.99nonlin: modreluc_length: 10optimizer: RMSproplabels: 8betas: (0.9, 0.999)alam: 0.0001rinit: henaffonehot: TrueT: 200iinit: xavierbatch: 10gamma_zero_gradient: Truelr: 0.0005net_type: nnRNNnhid: 128Tdecay: 1e-06lr_orth: 1e-06

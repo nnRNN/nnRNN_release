@@ -1,1 +1,0 @@
-onehot: Truenet_type: nnRNNbatch: 10cuda: FalseT: 200alpha: 0.99random_seed: 59alam: 0.0001optimizer: RMSpropbetas: (0.9, 0.999)nhid: 128labels: 8gamma_zero_gradient: Truenonlin: modrelulr_orth: 1e-06Tdecay: 1e-06rinit: henaffc_length: 10lr: 0.0005iinit: xavier
