@@ -130,6 +130,8 @@ Changes from paper:
 ### Adding problem
 The adding problem implemented here is very similar to the one defined [here](https://www.bioinf.jku.at/publications/older/2604.pdf). The input consists of two sequences. The first sequence consists of numbers sampled from a uniform distribution with mean 0 and standard deviation 1. The second sequence consists of 1s and 0s. There will be two 1s in the second sequence, indicating the corresponding number in the first sequence has to be added.
 
+Adding problem implementation is due to the contributions of [Madhusudhan](https://github.com/madhu-aithal), [Abhilash](https://github.com/abhilashrj) and [Karthik](https://github.com/karthiks1995)
+
 ![Adding problem](./adding_problem.png)
 
 #### Hyperparameters for reported results
