@@ -1,0 +1,1 @@
+alpha: 0.9T: 200iinit: xaviergamma_zero_gradient: FalseTdecay: 1e-05alam: 0.0001betas: (0.9, 0.999)cuda: Falsec_length: 100lr_orth: 2e-05labels: 8optimizer: RMSpropnonlin: tanhno_of_ones: 2rinit: xaviernhid: 128batch: 1random_seed: 13844net_type: RNNonehot: Falselr: 0.001

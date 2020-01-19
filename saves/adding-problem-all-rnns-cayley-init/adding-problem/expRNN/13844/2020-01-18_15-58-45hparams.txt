@@ -1,0 +1,1 @@
+cuda: Falseiinit: xavierno_of_ones: 2lr: 0.001labels: 8batch: 1lr_orth: 0.0001net_type: expRNNc_length: 100alpha: 0.99rinit: henaffoptimizer: RMSproprandom_seed: 13844Tdecay: 1e-05betas: (0.9, 0.999)nonlin: modrelugamma_zero_gradient: FalseT: 200alam: 0.0001nhid: 512onehot: False

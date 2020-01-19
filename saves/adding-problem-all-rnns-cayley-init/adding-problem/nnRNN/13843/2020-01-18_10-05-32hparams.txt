@@ -1,0 +1,1 @@
+no_of_ones: 2optimizer: RMSproprinit: cayleyalpha: 0.99gamma_zero_gradient: Falsec_length: 100net_type: nnRNNT: 200labels: 8lr: 0.0005iinit: xaviernhid: 512alam: 0.0001cuda: FalseTdecay: 1e-05nonlin: modrelubatch: 1onehot: Falsebetas: (0.9, 0.999)lr_orth: 1e-05random_seed: 13843

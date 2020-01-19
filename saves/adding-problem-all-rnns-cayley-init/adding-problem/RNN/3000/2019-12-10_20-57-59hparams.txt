@@ -1,1 +1,0 @@
-cuda: Falseno_of_ones: 2betas: (0.9, 0.999)nonlin: tanhgamma_zero_gradient: Falselabels: 8lr: 0.0002alpha: 0.99optimizer: RMSproponehot: Falsenhid: 128T: 200iinit: xaviernet_type: RNNlr_orth: 2e-05c_length: 100batch: 10alam: 0.0001rinit: henaffrandom_seed: 3000Tdecay: 1e-05

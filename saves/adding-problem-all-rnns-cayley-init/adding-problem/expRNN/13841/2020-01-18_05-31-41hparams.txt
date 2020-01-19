@@ -1,0 +1,1 @@
+nhid: 512net_type: expRNNno_of_ones: 2labels: 8alam: 0.0001batch: 1c_length: 100iinit: xavierlr_orth: 0.0001optimizer: RMSpropcuda: Falserinit: henaffbetas: (0.9, 0.999)onehot: Falsenonlin: modreluT: 200random_seed: 13841alpha: 0.99gamma_zero_gradient: FalseTdecay: 1e-05lr: 0.001

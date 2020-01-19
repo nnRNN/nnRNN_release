@@ -1,0 +1,1 @@
+Tdecay: 1e-05onehot: Falsec_length: 100nonlin: modrelubatch: 1lr_orth: 1e-05alam: 0.0001random_seed: 13840betas: (0.9, 0.999)iinit: xavieralpha: 0.99labels: 8optimizer: RMSpropgamma_zero_gradient: FalseT: 200nhid: 512lr: 0.0005no_of_ones: 2cuda: Falsenet_type: nnRNNrinit: cayley

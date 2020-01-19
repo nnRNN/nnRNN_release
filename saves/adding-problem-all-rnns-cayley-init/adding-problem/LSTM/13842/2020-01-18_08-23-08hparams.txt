@@ -1,0 +1,1 @@
+rinit: xavieriinit: xavierbetas: (0.9, 0.999)onehot: Falsegamma_zero_gradient: Falselr_orth: 2e-05lr: 0.0005no_of_ones: 2cuda: FalseT: 200Tdecay: 1e-05batch: 1alam: 0.0001random_seed: 13842alpha: 0.99net_type: LSTMlabels: 8optimizer: RMSpropc_length: 100nonlin: modrelunhid: 128

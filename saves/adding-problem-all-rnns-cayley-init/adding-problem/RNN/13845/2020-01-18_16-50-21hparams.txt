@@ -1,0 +1,1 @@
+onehot: Falselabels: 8lr: 0.001betas: (0.9, 0.999)iinit: xavierT: 200lr_orth: 2e-05gamma_zero_gradient: Falsec_length: 100alpha: 0.9rinit: xavierbatch: 1no_of_ones: 2net_type: RNNalam: 0.0001nonlin: tanhcuda: Falseoptimizer: RMSpropnhid: 128Tdecay: 1e-05random_seed: 13845
