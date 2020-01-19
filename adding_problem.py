@@ -20,8 +20,8 @@ parser.add_argument('--nhid',
                     help='hidden size of recurrent net')
 parser.add_argument('--cuda', action='store_true',
                     default=False, help='use cuda')
-# parser.add_argument('--T', type=int, default=200,
-                    # help='delay between sequence lengths')
+parser.add_argument('--T', type=int, default=200,
+                    help='delay between sequence lengths')
 parser.add_argument('--random-seed', type=int,
                     default=400, help='random seed')
 parser.add_argument('--labels', type=int, default=8,
@@ -56,8 +56,6 @@ parser.add_argument('--alam', type=float, default=0.0001,
                     help='decay for gamma values nnRNN')
 parser.add_argument('--Tdecay', type=float,
                     default=10e-6, help='weight decay on upper T')
-parser.add_argument('--gamma-zero-gradient', type=str2bool,
-                    default=False, help='Whether to update gamma values or not')
 
 args = parser.parse_args()
 
@@ -71,9 +69,11 @@ def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2):
     for i in range(N):
         # Default uniform distribution on position sampling
         
-        positions1 = np.random.choice(np.arange(math.floor(seq_len/2)), size=math.floor(number_of_ones/2), replace=False)
-        positions2 = np.random.choice(np.arange(math.ceil(seq_len/2), seq_len), size=math.ceil(number_of_ones/2), replace=False)
-
+        ''' Random positions such that first entry of 1 is in the first half of the sequence and 
+        the second entry is in the second half of the sequence'''
+        positions1 = np.random.choice(math.floor(seq_len/2), size=math.floor(number_of_ones/2), replace=False)
+        positions2 = np.random.choice(math.ceil(seq_len/2), size=math.ceil(number_of_ones/2), replace=False)
+        positions2 = np.array([math.ceil(seq_len/2)+val for val in positions2])
         positions = []
         positions.extend(list(positions1))
         positions.extend(list(positions2))
@@ -98,7 +98,7 @@ class Model(nn.Module):
 
         nn.init.xavier_normal_(self.lin.weight)
 
-    def forward(self, x, y):        
+    def forward(self, x, y):
         hidden = None
         loss = 0
         accuracy = 0
@@ -112,13 +112,14 @@ class Model(nn.Module):
                 hidden = self.rnn.forward(x[i], hidden)
             out = self.lin(hidden)
                     
-            if i >= args.c_length:
+            if i >= T + args.c_length:
                 preds = torch.argmax(out, dim=1)
                 actual = y[i].squeeze(1)
                 correct = preds == actual
-                accuracy += correct.sum().item()        
+                accuracy += correct.sum().item()
+       
         loss += self.loss_func(out, y.squeeze(1).t())
-        accuracy /= (args.c_length*x.shape[1])        
+        accuracy /= (args.c_length*x.shape[1])
         return loss, accuracy
 
 def train_model(net, optimizer, batch_size, n_steps):
@@ -128,9 +129,9 @@ def train_model(net, optimizer, batch_size, n_steps):
     rec_nets = []
     first_hid_grads = []
     
-    for i in range(n_steps):        
+    for i in range(n_steps):
         s_t = time.time()
-        x,y = adding_problem_generator(batch_size, seq_len=args.c_length, number_of_ones=args.no_of_ones)        
+        x,y = adding_problem_generator(batch_size, seq_len=args.c_length, number_of_ones=args.no_of_ones)
         if CUDA:
             x = x.cuda()
             y = y.cuda()
@@ -145,13 +146,11 @@ def train_model(net, optimizer, batch_size, n_steps):
         if NET_TYPE == 'nnRNN' and alam > 0:
             alpha_loss = net.rnn.alpha_loss(alam)
             loss += alpha_loss
-        loss.backward()        
+        loss.backward()
         losses.append(loss_act.item())
 
         if orthog_optimizer:
-            net.rnn.orthogonal_step(orthog_optimizer)
-            if args.gamma_zero_gradient == True:
-                [net.rnn.alphas[i].grad.data.zero_() for i in range(len(net.rnn.alphas))]
+            net.rnn.orthogonal_step(orthog_optimizer)        
 
         optimizer.step()
         accs.append(accuracy)
@@ -203,6 +202,7 @@ torch.manual_seed(random_seed)
 np.random.seed(random_seed)
 
 inp_size = 2
+T = args.T
 batch_size = args.batch
 out_size = args.labels + 1
 if args.onehot:
