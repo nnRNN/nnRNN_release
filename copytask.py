@@ -5,7 +5,7 @@ import pickle
 import argparse
 import time
 import os
-from utils import select_network, select_optimizer
+from utils import select_network, select_optimizer, str2bool
 from datetime import datetime
 
 parser = argparse.ArgumentParser(description='auglang parameters')
@@ -54,6 +54,8 @@ parser.add_argument('--alam', type=float, default=0.0001,
                     help='decay for gamma values nnRNN')
 parser.add_argument('--Tdecay', type=float,
                     default=10e-6, help='weight decay on upper T')
+parser.add_argument('--gamma-zero-gradient', type=str2bool,
+                    default=False, help='Whether to update gamma values or not')
 
 args = parser.parse_args()
 
@@ -111,6 +113,7 @@ class Model(nn.Module):
         nn.init.xavier_normal_(self.lin.weight)
 
     def forward(self, x, y):
+        # print("y: ", y.size(), y[0], x[0])
         hidden = None
         loss = 0
         accuracy = 0
@@ -123,6 +126,7 @@ class Model(nn.Module):
             else:
                 hidden = self.rnn.forward(x[i], hidden)
             out = self.lin(hidden)
+            
             loss += self.loss_func(out, y[i].squeeze(1))
 
             if i >= T + args.c_length:
@@ -130,7 +134,6 @@ class Model(nn.Module):
                 actual = y[i].squeeze(1)
                 correct = preds == actual
                 accuracy += correct.sum().item()
-
         accuracy /= (args.c_length*x.shape[1])
         loss /= (x.shape[0])
         return loss, accuracy
@@ -143,10 +146,14 @@ def train_model(net, optimizer, batch_size, T, n_steps):
     first_hid_grads = []
     
     for i in range(n_steps):
-        
+        # print(i)
+        # if i==0 or i==n_steps-1:
+        #     # print("P before: ", torch.mul(net.rnn.UppT, net.rnn.M))
+        #     print("Gamma before: ", net.rnn.alphas)
         s_t = time.time()
         x,y = create_dataset(batch_size, T, args.c_length)
-        
+        # print(x.size(), y.size())
+        # print(x, y)
         if CUDA:
             x = x.cuda()
             y = y.cuda()
@@ -162,10 +169,18 @@ def train_model(net, optimizer, batch_size, T, n_steps):
             alpha_loss = net.rnn.alpha_loss(alam)
             loss += alpha_loss
         loss.backward()
+        # if i==0 or i==n_steps-1:
+        #     # print("P after: ", torch.mul(net.rnn.UppT, net.rnn.M))
+        #     print("Gamma after: ", net.rnn.alphas)
         losses.append(loss_act.item())
 
         if orthog_optimizer:
             net.rnn.orthogonal_step(orthog_optimizer)
+            if args.gamma_zero_gradient == True:
+                [net.rnn.alphas[i].grad.data.zero_() for i in range(len(net.rnn.alphas))]
+                # [net.rnn.thetas[i].grad.data.zero_() for i in range(len(net.rnn.thetas))]
+            # print(net.rnn.thetas[0].grad)
+
         optimizer.step()
         accs.append(accuracy)
 
@@ -206,8 +221,7 @@ CUDA = args.cuda
 alam = args.alam
 Tdecay = args.Tdecay
 hidden_size = args.nhid
-
-n_steps = 1500
+n_steps = 800
 exp_time = "{0:%Y-%m-%d}_{0:%H-%M-%S}".format(datetime.now())
 SAVEDIR = os.path.join('./saves', 'copytask',
                        NET_TYPE, str(random_seed),exp_time)
@@ -234,9 +248,9 @@ print(NET_TYPE)
 print('Cuda: {}'.format(CUDA))
 print(nonlin)
 print(hidden_size)
-for name, param in net.named_parameters():
-    if param.requires_grad:
-        print(name, param.data)
+# for name, param in net.named_parameters():
+#     if param.requires_grad:
+#         print(name, param.data)
 if not os.path.exists(SAVEDIR):
     os.makedirs(SAVEDIR)
 
