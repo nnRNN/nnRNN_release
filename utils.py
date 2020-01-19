@@ -51,7 +51,7 @@ def select_network(args, inp_size):
                       bias=True,
                       cuda=args.cuda,
                       r_initializer=rinit,
-                      i_initializer=iinit)
+                      i_initializer=iinit)        
     elif args.net_type == 'nnRNN':
         rnn = OrthoRNNCell(inp_size,args.nhid,args.nonlin,
                            bias=False,
@@ -66,7 +66,7 @@ def select_network(args, inp_size):
         rnn = LSTM(inp_size,
                    args.nhid,
                    cuda=args.cuda)
-    print("rnn: ", rnn)
+    # print("rnn: ", rnn.parameters)
     return rnn
 
 def calc_hidden_size(net_type, n_params, n_in, n_out):
@@ -174,7 +174,7 @@ def select_optimizer(net, args):
             optimizer = optim.RMSprop(x, lr=args.lr, alpha=args.alpha)
             orthog_optimizer = None
         elif args.optimizer == 'Adam':
-            optimizer = optim.Adam(x, lr=args.lr, alpha=args.betas)
+            optimizer = optim.Adam(x, lr=args.lr, betas=args.betas)
             orthog_optimizer = None
     return optimizer, orthog_optimizer
 

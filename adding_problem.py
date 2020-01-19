@@ -20,8 +20,13 @@ parser.add_argument('--nhid',
                     help='hidden size of recurrent net')
 parser.add_argument('--cuda', action='store_true',
                     default=False, help='use cuda')
+<<<<<<< HEAD
 parser.add_argument('--T', type=int, default=200,
                     help='delay between sequence lengths')
+=======
+# parser.add_argument('--T', type=int, default=200,
+                    # help='delay between sequence lengths')
+>>>>>>> upstream/master
 parser.add_argument('--random-seed', type=int,
                     default=400, help='random seed')
 parser.add_argument('--labels', type=int, default=8,
@@ -71,11 +76,17 @@ def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2):
     for i in range(N):
         # Default uniform distribution on position sampling
         
+<<<<<<< HEAD
         ''' Random positions such that first entry of 1 is in the first half of the sequence and 
         the second entry is in the second half of the sequence'''
         positions1 = np.random.choice(math.floor(seq_len/2), size=math.floor(number_of_ones/2), replace=False)
         positions2 = np.random.choice(math.ceil(seq_len/2), size=math.ceil(number_of_ones/2), replace=False)
         positions2 = np.array([math.ceil(seq_len/2)+val for val in positions2])
+=======
+        positions1 = np.random.choice(np.arange(math.floor(seq_len/2)), size=math.floor(number_of_ones/2), replace=False)
+        positions2 = np.random.choice(np.arange(math.ceil(seq_len/2), seq_len), size=math.ceil(number_of_ones/2), replace=False)
+
+>>>>>>> upstream/master
         positions = []
         positions.extend(list(positions1))
         positions.extend(list(positions2))
@@ -86,6 +97,7 @@ def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2):
     X = np.append(X_num, X_mask, axis=2)
     return torch.FloatTensor(X), torch.FloatTensor(Y)
 
+<<<<<<< HEAD
 
 def generate_copying_sequence(T, labels, c_length):
 
@@ -125,6 +137,8 @@ def create_dataset(size, T, c_length=10):
     d_y = torch.stack(d_y)
     return d_x, d_y
 
+=======
+>>>>>>> upstream/master
 def onehot(inp):
     onehot_x = inp.new_zeros(inp.shape[0], args.labels+2)
     return onehot_x.scatter_(1, inp.long(), 1)
@@ -139,11 +153,15 @@ class Model(nn.Module):
 
         nn.init.xavier_normal_(self.lin.weight)
 
+<<<<<<< HEAD
     def forward(self, x, y):
         # print("y: ", y.size(), y[0], x[0])
         # print("onehot", args.onehot)
         # print("x: ", x.size(), "y: ", y.size())
         # print("x batch size: ", x.shape[1])
+=======
+    def forward(self, x, y):        
+>>>>>>> upstream/master
         hidden = None
         loss = 0
         accuracy = 0
@@ -156,21 +174,14 @@ class Model(nn.Module):
             else:
                 hidden = self.rnn.forward(x[i], hidden)
             out = self.lin(hidden)
-            
-        # print(y.size())
-        
-            if i >= T + args.c_length:
+                    
+            if i >= args.c_length:
                 preds = torch.argmax(out, dim=1)
                 actual = y[i].squeeze(1)
                 correct = preds == actual
-                accuracy += correct.sum().item()
-        # print("out size and y[i]: ", out.size(), y.squeeze(1).t())
-        # print(out.size())
-        # loss += self.loss_func(out-out+1, y.squeeze(1).t())
+                accuracy += correct.sum().item()        
         loss += self.loss_func(out, y.squeeze(1).t())
-        accuracy /= (args.c_length*x.shape[1])
-        # loss /= (x.shape[0])
-        # print("loss: ", loss)
+        accuracy /= (args.c_length*x.shape[1])        
         return loss, accuracy
 
 def train_model(net, optimizer, batch_size, n_steps):
@@ -180,6 +191,7 @@ def train_model(net, optimizer, batch_size, n_steps):
     rec_nets = []
     first_hid_grads = []
     
+<<<<<<< HEAD
     for i in range(n_steps):
         # print(i)
         # if i==0 or i==n_steps-1:
@@ -189,6 +201,11 @@ def train_model(net, optimizer, batch_size, n_steps):
         x,y = adding_problem_generator(batch_size, seq_len=args.c_length, number_of_ones=args.no_of_ones)
         # print(x.size(), y.size())
         # print(x, y)
+=======
+    for i in range(n_steps):        
+        s_t = time.time()
+        x,y = adding_problem_generator(batch_size, seq_len=args.c_length, number_of_ones=args.no_of_ones)        
+>>>>>>> upstream/master
         if CUDA:
             x = x.cuda()
             y = y.cuda()
@@ -203,18 +220,25 @@ def train_model(net, optimizer, batch_size, n_steps):
         if NET_TYPE == 'nnRNN' and alam > 0:
             alpha_loss = net.rnn.alpha_loss(alam)
             loss += alpha_loss
+<<<<<<< HEAD
         loss.backward()
         # if i==0 or i==n_steps-1:
         #     # print("P after: ", torch.mul(net.rnn.UppT, net.rnn.M))
         #     print("Gamma after: ", net.rnn.alphas)
+=======
+        loss.backward()        
+>>>>>>> upstream/master
         losses.append(loss_act.item())
 
         if orthog_optimizer:
             net.rnn.orthogonal_step(orthog_optimizer)
             if args.gamma_zero_gradient == True:
                 [net.rnn.alphas[i].grad.data.zero_() for i in range(len(net.rnn.alphas))]
+<<<<<<< HEAD
                 # [net.rnn.thetas[i].grad.data.zero_() for i in range(len(net.rnn.thetas))]
             # print(net.rnn.thetas[0].grad)
+=======
+>>>>>>> upstream/master
 
         optimizer.step()
         accs.append(accuracy)
@@ -266,7 +290,10 @@ torch.manual_seed(random_seed)
 np.random.seed(random_seed)
 
 inp_size = 2
+<<<<<<< HEAD
 T = args.T
+=======
+>>>>>>> upstream/master
 batch_size = args.batch
 out_size = args.labels + 1
 if args.onehot:
@@ -283,9 +310,12 @@ print(NET_TYPE)
 print('Cuda: {}'.format(CUDA))
 print(nonlin)
 print(hidden_size)
+<<<<<<< HEAD
 # for name, param in net.named_parameters():
 #     if param.requires_grad:
 #         print(name, param.data)
+=======
+>>>>>>> upstream/master
 if not os.path.exists(SAVEDIR):
     os.makedirs(SAVEDIR)
 
