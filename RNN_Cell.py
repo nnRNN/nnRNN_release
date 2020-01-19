@@ -94,6 +94,7 @@ class OrthoRNNCell(nn.Module):
         super(OrthoRNNCell,self).__init__()
         self.cudafy = cuda
         self.hidden_size = hid_size
+        self.theta_list = []
         #Add Non linearity
         if nonlin == 'relu':
             self.nonlinearity = nn.ReLU()
@@ -107,6 +108,7 @@ class OrthoRNNCell(nn.Module):
             self.nonlinearity = None
 
         # Create linear layer to act on input X
+        # print("inp size: ", inp_size, " hid_size", hid_size)
         self.U = nn.Linear(inp_size, hid_size, bias=bias)
 
         self.i_initializer = i_initializer
@@ -127,7 +129,6 @@ class OrthoRNNCell(nn.Module):
         self.M = torch.triu(torch.ones_like(self.UppT),diagonal=1)
         self.D = torch.zeros_like(self.UppT)
 
-
         # Create rotations and mask M for *.3 and *.4
         self.thetas = [0]*int(hid_size)
         for i in range(0,len(self.thetas)):
@@ -140,6 +141,10 @@ class OrthoRNNCell(nn.Module):
             self.alphas[i] = nn.Parameter(torch.Tensor([np.random.uniform(1.00,1.00)]))
             self.register_parameter('alpha_{}'.format(i),self.alphas[i])
 
+        # print("self.UppT: ", self.UppT)
+        # print("self.M: ", self.M)
+        # print("self.alphas[0]: ", self.alphas[0].size())
+        # print("self.thetas: ", self.thetas)
         
         self.reset_parameters()
 
@@ -158,6 +163,7 @@ class OrthoRNNCell(nn.Module):
         self.i_initializer(self.U.weight.data)
         self.log_P.data = torch.as_tensor(self.r_initializer(self.hidden_size))
         self.P.data = self._B(False)
+        # print("self.log_P", self.log_P)
 
     def _A(self,gradients=False):
         A = self.log_P
@@ -167,29 +173,43 @@ class OrthoRNNCell(nn.Module):
         return A-A.t()
 
     def _B(self,gradients=False):
-        return expm(self._A())
+        temp = self._A()
+        # print("self._A: ", temp)
+        return expm(temp)
         
     def orthogonal_step(self,optimizer):
         A = self._A(False)
         B = self.P.data
+        # print("P: ", self.P)
+        # print("P.grad: ", self.P.grad)
         G = self.P.grad.data
         BtG = B.t().mm(G)
         grad = 0.5*(BtG - BtG.t())
-        frechet_deriv = B.mm(expm_frechet(-A, grad))
+        temp = expm_frechet(-A, grad)
+        frechet_deriv = B.mm(temp)
+        # print("frechet_deriv: ", temp)
         self.log_P.grad = (frechet_deriv - frechet_deriv.t()).triu(diagonal=1)
         optimizer.step()
         self.P.data = self._B(False)
         self.P.grad.data.zero_()
+
+    # def get_theta_list(self):
+    #     return self.theta_list
 
     def forward(self, x,hidden=None):
         if hidden is None:
             hidden = x.new_zeros(x.shape[0],self.hidden_size, requires_grad=True)
             self.first_hidden = hidden
             self.calc_rec()
+        # print("hid size, self.rec size: ", hidden.size(), self.rec.size())
+        # print("x: ", x.size())
+        # temp = self.U(x)
+        # print("self.U(x): ", temp.size())
         h = self.U(x) + torch.matmul(hidden,self.rec)
         if self.nonlinearity:
             h = self.nonlinearity(h)
-
+        # self.theta_list.append(torch.mul(self.UppT, self.M) + torch.mul(self.alpha_block, self.D))
+        # self.rec_list.append(self.rec)
         return h
 
     def calc_rec(self):

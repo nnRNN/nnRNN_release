@@ -56,6 +56,8 @@ parser.add_argument('--alam', type=float, default=0.0001,
                     help='decay for gamma values nnRNN')
 parser.add_argument('--Tdecay', type=float,
                     default=10e-6, help='weight decay on upper T')
+parser.add_argument('--gamma-zero-gradient', type=str2bool,
+                    default=False, help='Whether to update gamma values or not')
 
 args = parser.parse_args()
 
@@ -84,6 +86,45 @@ def adding_problem_generator(N, seq_len=6, high=1, number_of_ones=2):
     X = np.append(X_num, X_mask, axis=2)
     return torch.FloatTensor(X), torch.FloatTensor(Y)
 
+
+def generate_copying_sequence(T, labels, c_length):
+
+    items = [1, 2, 3, 4, 5, 6, 7, 8, 0, 9]
+    x = []
+    y = []
+
+    ind = np.random.randint(labels, size=c_length)
+    for i in range(c_length):
+        x.append([items[ind[i]]])
+    for i in range(T - 1):
+        x.append([items[8]])
+    x.append([items[9]])
+    for i in range(c_length):
+        x.append([items[8]])
+
+    for i in range(T + c_length):
+        y.append([items[8]])
+    for i in range(c_length):
+        y.append([items[ind[i]]])
+
+    x = np.array(x)
+    y = np.array(y)
+
+    return torch.FloatTensor([x]), torch.LongTensor([y])
+
+def create_dataset(size, T, c_length=10):
+    d_x = []
+    d_y = []
+    for i in range(size):
+        sq_x, sq_y = generate_copying_sequence(T, 8, c_length)
+        sq_x, sq_y = sq_x[0], sq_y[0]
+        d_x.append(sq_x)
+        d_y.append(sq_y)
+
+    d_x = torch.stack(d_x)
+    d_y = torch.stack(d_y)
+    return d_x, d_y
+
 def onehot(inp):
     onehot_x = inp.new_zeros(inp.shape[0], args.labels+2)
     return onehot_x.scatter_(1, inp.long(), 1)
@@ -99,6 +140,10 @@ class Model(nn.Module):
         nn.init.xavier_normal_(self.lin.weight)
 
     def forward(self, x, y):
+        # print("y: ", y.size(), y[0], x[0])
+        # print("onehot", args.onehot)
+        # print("x: ", x.size(), "y: ", y.size())
+        # print("x batch size: ", x.shape[1])
         hidden = None
         loss = 0
         accuracy = 0
@@ -111,15 +156,21 @@ class Model(nn.Module):
             else:
                 hidden = self.rnn.forward(x[i], hidden)
             out = self.lin(hidden)
-                    
+            
+        # print(y.size())
+        
             if i >= T + args.c_length:
                 preds = torch.argmax(out, dim=1)
                 actual = y[i].squeeze(1)
                 correct = preds == actual
                 accuracy += correct.sum().item()
-       
+        # print("out size and y[i]: ", out.size(), y.squeeze(1).t())
+        # print(out.size())
+        # loss += self.loss_func(out-out+1, y.squeeze(1).t())
         loss += self.loss_func(out, y.squeeze(1).t())
         accuracy /= (args.c_length*x.shape[1])
+        # loss /= (x.shape[0])
+        # print("loss: ", loss)
         return loss, accuracy
 
 def train_model(net, optimizer, batch_size, n_steps):
@@ -130,8 +181,14 @@ def train_model(net, optimizer, batch_size, n_steps):
     first_hid_grads = []
     
     for i in range(n_steps):
+        # print(i)
+        # if i==0 or i==n_steps-1:
+        #     # print("P before: ", torch.mul(net.rnn.UppT, net.rnn.M))
+        #     print("Gamma before: ", net.rnn.alphas)
         s_t = time.time()
         x,y = adding_problem_generator(batch_size, seq_len=args.c_length, number_of_ones=args.no_of_ones)
+        # print(x.size(), y.size())
+        # print(x, y)
         if CUDA:
             x = x.cuda()
             y = y.cuda()
@@ -147,10 +204,17 @@ def train_model(net, optimizer, batch_size, n_steps):
             alpha_loss = net.rnn.alpha_loss(alam)
             loss += alpha_loss
         loss.backward()
+        # if i==0 or i==n_steps-1:
+        #     # print("P after: ", torch.mul(net.rnn.UppT, net.rnn.M))
+        #     print("Gamma after: ", net.rnn.alphas)
         losses.append(loss_act.item())
 
         if orthog_optimizer:
-            net.rnn.orthogonal_step(orthog_optimizer)        
+            net.rnn.orthogonal_step(orthog_optimizer)
+            if args.gamma_zero_gradient == True:
+                [net.rnn.alphas[i].grad.data.zero_() for i in range(len(net.rnn.alphas))]
+                # [net.rnn.thetas[i].grad.data.zero_() for i in range(len(net.rnn.thetas))]
+            # print(net.rnn.thetas[0].grad)
 
         optimizer.step()
         accs.append(accuracy)
@@ -219,6 +283,9 @@ print(NET_TYPE)
 print('Cuda: {}'.format(CUDA))
 print(nonlin)
 print(hidden_size)
+# for name, param in net.named_parameters():
+#     if param.requires_grad:
+#         print(name, param.data)
 if not os.path.exists(SAVEDIR):
     os.makedirs(SAVEDIR)
 

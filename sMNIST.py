@@ -276,7 +276,7 @@ T = 784
 batch_size = args.batch
 out_size = 10
 
-rnn = select_network(args, inp_size)
+rnn = select_network(inp_size, args)
 
 net = Model(hid_size,rnn)
 if CUDA:
@@ -288,5 +288,5 @@ print('Cuda: {}'.format(CUDA))
 optimizer, orthog_optimizer = select_optimizer(net, args)
 epoch = 0
 num_epochs = args.epochs
-train_model(net, optimizer, num_epochs)
+train_model(net, num_epochs)
 
